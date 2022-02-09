@@ -20,7 +20,7 @@
         </div>
         <div>
             Jelszó:<br>
-            <input type="password" name="password" value="{{ old('password') }}">
+            <input type="text" name="password" value="{{ old('password') }}">
         </div>
         <div>
             Születési dátum:<br>
