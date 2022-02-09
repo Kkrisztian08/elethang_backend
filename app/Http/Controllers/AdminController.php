@@ -14,7 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $admins = Admin::orderBy('name')->get();
+        return view('admins.index', [ 'admins' => $admins ]);
     }
 
     /**
@@ -24,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $adatok = $request->only(['name', 'email', 'birthday','address']);
+        $admin = new Admin();
+        $admin->fill($adatok);
+        $admin->save();
+        return redirect()->route('admins.index');
     }
 
     /**
@@ -46,7 +51,7 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        return view('admins.show', ['admins'=> $admin]);
     }
 
     /**
@@ -57,7 +62,7 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        //
+        return view('admins.edit', ['admins'=> $admin]);
     }
 
     /**
@@ -69,7 +74,10 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        $adatok = $request->only(['name', 'email', 'birthday','address']);
+        $admin->fill($adatok);
+        $admin->save();
+        return redirect()->route('admins.show', $admin->id);
     }
 
     /**
@@ -80,6 +88,7 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        $admin->delete();
+        return redirect()->route('admins.index');
     }
 }
