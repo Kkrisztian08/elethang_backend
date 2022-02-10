@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Adoption;
+use App\Models\VirtualAdoption;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,8 +23,12 @@ class CreateDogsTable extends Migration
             $table->string("species");
             $table->string("external_property");
             $table->integer("interest");
-            $table->integer("adoption_id");
-            $table->integer("virtual_adoption_id");
+            $table->foreignIdFor(Adoption::class) //adoption_id
+                ->constrained()
+                ->onDelete('cascade');
+            $table->foreignIdFor(VirtualAdoption::class) //virtual_adoption_id
+                ->constrained()
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

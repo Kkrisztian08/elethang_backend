@@ -13,4 +13,10 @@ class VirtualAdoption extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+    public function dog() {
+        return $this->hasMany(Dog::class);
+    }
+    public function cat() {
+        return $this->hasMany(Cat::class);
+    }
 }
