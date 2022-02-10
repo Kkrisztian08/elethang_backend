@@ -11,6 +11,14 @@ class Programapplication extends Model
 
     protected $table = 'programapplications';
 
-    
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    public function programHourAndDay() {
+        return $this->belongsTo(ProgramHourAndDay::class);
+    }
+    public function programType() {
+        return $this->belongsTo(ProgramType::class);
+    }
     
 }

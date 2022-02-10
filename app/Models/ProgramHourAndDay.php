@@ -10,5 +10,7 @@ class ProgramHourAndDay extends Model
     use HasFactory;
     protected $table = 'program_hour_and_days';
 
-    
+    public function programapplication() {
+        return $this->hasMany(Programapplication::class);
+    }
 }

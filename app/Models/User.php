@@ -19,6 +19,9 @@ class User extends Authenticatable
     public function virtualAdoption() {
         return $this->hasMany(VirtualAdoption::class);
     }
+    public function programapplication() {
+        return $this->hasMany(Programapplication::class);
+    }
 
     protected $table = 'users';
 

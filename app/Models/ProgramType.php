@@ -10,5 +10,9 @@ class ProgramType extends Model
     use HasFactory;
     protected $table = 'program_types';
 
+    public function programapplication() {
+        return $this->hasMany(Programapplication::class);
+    }
+
     
 }
