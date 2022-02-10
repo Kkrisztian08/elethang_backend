@@ -13,7 +13,11 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function user() {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Adoption::class);
+    }
+
+    public function virtualAdoption() {
+        return $this->hasMany(VirtualAdoption::class);
     }
 
     protected $table = 'users';

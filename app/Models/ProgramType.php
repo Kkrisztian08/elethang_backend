@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramType extends Model
 {
     use HasFactory;
+    protected $table = 'program_types';
+
+    
 }

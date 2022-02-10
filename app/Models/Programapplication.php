@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Programapplication extends Model
 {
     use HasFactory;
+
+    protected $table = 'programapplications';
+
+    
+    
 }

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramHourAndDay extends Model
 {
     use HasFactory;
+    protected $table = 'program_hour_and_days';
+
+    
 }
