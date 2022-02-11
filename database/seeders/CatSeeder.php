@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cat;
 use Illuminate\Database\Seeder;
 
 class CatSeeder extends Seeder
@@ -13,6 +14,6 @@ class CatSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Cat::factory(5)->create();
     }
 }

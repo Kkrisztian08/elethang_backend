@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Adoption;
 use Illuminate\Database\Seeder;
 
 class AdoptionSeeder extends Seeder
@@ -13,6 +14,6 @@ class AdoptionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Adoption::factory(5)->create();
     }
 }

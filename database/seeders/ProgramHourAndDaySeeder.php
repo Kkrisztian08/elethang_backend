@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProgramHourAndDay;
 use Illuminate\Database\Seeder;
 
 class ProgramHourAndDaySeeder extends Seeder
@@ -13,6 +14,6 @@ class ProgramHourAndDaySeeder extends Seeder
      */
     public function run()
     {
-        //
+        ProgramHourAndDay::factory(5)->create();
     }
 }

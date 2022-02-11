@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dog;
 use Illuminate\Database\Seeder;
 
 class DogSeeder extends Seeder
@@ -13,6 +14,6 @@ class DogSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Dog::factory(5)->create();
     }
 }
