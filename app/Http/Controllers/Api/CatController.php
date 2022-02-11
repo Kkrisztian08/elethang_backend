@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Cat;
 use Illuminate\Http\Request;
+use App\Http\Requests\CatCreate;
+use App\Http\Requests\CatUpdate;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class CatController extends Controller
 {
@@ -14,17 +18,8 @@ class CatController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $cats = Cat::all();
+        return response()->json($cats);
     }
 
     /**
@@ -35,51 +30,77 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), (new CatCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $cat = new Cat();
+        $cat->fill($request->all());
+        $cat->save();
+        return response()->json($cat, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cat  $cat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cat $cat)
+    public function show(int $id)
     {
-        //
+        $cat = Cat::find($id);
+        if (is_null($cat)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+        }
+        return response()->json($cat);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cat  $cat
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cat $cat)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cat  $cat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cat $cat)
+    public function update(CatUpdate $request, int $id)
     {
-        //
+        if ($request->isMethod('PUT')) {
+            $validator = Validator::make($request->all(), (new CatCreate())->rules());
+            if ($validator->fails()) {
+                $errormsg = "";
+                foreach ($validator->errors()->all() as $error) {
+                    $errormsg .= $error . " ";
+                }
+                $errormsg = trim($errormsg);
+                return response()->json($errormsg, 400);
+            }
+        }
+        $cat = Cat::find($id);
+        if (is_null($cat)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+        }
+        $cat->fill($request->all());
+        $cat->save();
+        return response()->json($cat, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cat  $cat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cat $cat)
+    public function destroy(int $id)
     {
-        //
+        $cat = Cat::find($id);
+        if (is_null($cat)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+        }
+        Cat::destroy($id);
+        return response()->noContent();
     }
 }

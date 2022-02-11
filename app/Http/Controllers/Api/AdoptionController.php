@@ -3,27 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Adoption;
+use App\Http\Requests\AdoptionCreate;
+use App\Http\Requests\AdoptionUpdate;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class AdoptionController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $adoptions = Adoption::all();
+        return response()->json($adoptions);
     }
 
     /**
@@ -34,51 +30,77 @@ class AdoptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $adoption = new Adoption();
+        $adoption->fill($request->all());
+        $adoption->save();
+        return response()->json($adoption, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(AdoptionController $admin)
+    public function show(int $id)
     {
-        //
+        $adoption = Adoption::find($id);
+        if (is_null($adoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+        }
+        return response()->json($adoption);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AdoptionController $admin)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdoptionController $admin)
+    public function update(AdoptionUpdate $request, int $id)
     {
-        //
+        if ($request->isMethod('PUT')) {
+            $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
+            if ($validator->fails()) {
+                $errormsg = "";
+                foreach ($validator->errors()->all() as $error) {
+                    $errormsg .= $error . " ";
+                }
+                $errormsg = trim($errormsg);
+                return response()->json($errormsg, 400);
+            }
+        }
+        $adoption = Adoption::find($id);
+        if (is_null($adoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+        }
+        $adoption->fill($request->all());
+        $adoption->save();
+        return response()->json($adoption, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdoptionController $admin)
+    public function destroy(int $id)
     {
-        //
+        $adoption = Adoption::find($id);
+        if (is_null($adoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+        }
+        Adoption::destroy($id);
+        return response()->noContent();
     }
 }

@@ -3,27 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\EventCreate;
+use App\Http\Requests\EventUpdate;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Event;
 
 class EventController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $events = Event::all();
+        return response()->json($events);
     }
 
     /**
@@ -34,51 +30,77 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), (new EventCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $event = new Event();
+        $event->fill($request->all());
+        $event->save();
+        return response()->json($event, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(EventController $admin)
+    public function show(int $id)
     {
-        //
+        $event = Event::find($id);
+        if (is_null($event)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+        }
+        return response()->json($event);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(EventController $admin)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventController $admin)
+    public function update(EventUpdate $request, int $id)
     {
-        //
+        if ($request->isMethod('PUT')) {
+            $validator = Validator::make($request->all(), (new EventCreate())->rules());
+            if ($validator->fails()) {
+                $errormsg = "";
+                foreach ($validator->errors()->all() as $error) {
+                    $errormsg .= $error . " ";
+                }
+                $errormsg = trim($errormsg);
+                return response()->json($errormsg, 400);
+            }
+        }
+        $event = Event::find($id);
+        if (is_null($event)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+        }
+        $event->fill($request->all());
+        $event->save();
+        return response()->json($event, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventController $admin)
+    public function destroy(int $id)
     {
-        //
+        $event = Event::find($id);
+        if (is_null($event)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+        }
+        Event::destroy($id);
+        return response()->noContent();
     }
 }

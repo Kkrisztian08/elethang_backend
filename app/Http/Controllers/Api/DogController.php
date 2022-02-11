@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Dog;
 use Illuminate\Http\Request;
+use App\Http\Requests\DogCreate;
+use App\Http\Requests\DogUpdate;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class DogController extends Controller
 {
@@ -14,17 +18,8 @@ class DogController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $dogs = Dog::all();
+        return response()->json($dogs);
     }
 
     /**
@@ -35,51 +30,77 @@ class DogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), (new DogCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $dog = new Dog();
+        $dog->fill($request->all());
+        $dog->save();
+        return response()->json($dog, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dog  $dog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Dog $dog)
+    public function show(int $id)
     {
-        //
+        $dog = Dog::find($id);
+        if (is_null($dog)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+        }
+        return response()->json($dog);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Dog  $dog
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Dog $dog)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dog  $dog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dog $dog)
+    public function update(DogUpdate $request, int $id)
     {
-        //
+        if ($request->isMethod('PUT')) {
+            $validator = Validator::make($request->all(), (new DogCreate())->rules());
+            if ($validator->fails()) {
+                $errormsg = "";
+                foreach ($validator->errors()->all() as $error) {
+                    $errormsg .= $error . " ";
+                }
+                $errormsg = trim($errormsg);
+                return response()->json($errormsg, 400);
+            }
+        }
+        $dog = Dog::find($id);
+        if (is_null($dog)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+        }
+        $dog->fill($request->all());
+        $dog->save();
+        return response()->json($dog, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dog  $dog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dog $dog)
+    public function destroy(int $id)
     {
-        //
+        $dog = Dog::find($id);
+        if (is_null($dog)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+        }
+        Dog::destroy($id);
+        return response()->noContent();
     }
 }
