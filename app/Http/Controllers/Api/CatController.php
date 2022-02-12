@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Cat;
 use Illuminate\Http\Request;
-use App\Http\Requests\CatCreate;
-use App\Http\Requests\CatUpdate;
+use App\Http\Requests\Cat\CatCreate;
+use App\Http\Requests\Cat\CatUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
