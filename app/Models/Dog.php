@@ -10,6 +10,13 @@ class Dog extends Model
     use HasFactory;
     protected $table = 'dogs';
 
+    protected $fillable = ['name', 'gender','likely_bday', 'species','external_property','interest','adoption_id','virtual_adoption_id'];
+
+    protected $visible = ['name', 'gender','likely_bday', 'species','external_property','interest','adoption_id','virtual_adoption_id'];
+
+    protected $hidden=['interest','adoption_id','virtual_adoption_id'];
+
+
     public function adoption() {
         return $this->belongsTo(Adoption::class);
     }

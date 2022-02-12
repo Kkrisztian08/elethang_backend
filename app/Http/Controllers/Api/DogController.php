@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Dog;
 use Illuminate\Http\Request;
-use App\Http\Requests\DogCreate;
-use App\Http\Requests\DogUpdate;
+use App\Http\Requests\Dog\DogCreate;
+use App\Http\Requests\Dog\DogUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
