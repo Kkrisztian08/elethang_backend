@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Adoption extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'adoption_beginning'];
 
     protected $table = 'adoptions';
 

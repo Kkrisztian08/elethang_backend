@@ -19,6 +19,7 @@ class CreateAdoptionsTable extends Migration
             $table->foreignIdFor(User::class) //user_id
                 ->constrained()
                 ->onDelete('cascade');
+                
             $table->date("adoption_beginning");
             $table->timestamps();
         });

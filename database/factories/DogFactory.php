@@ -14,7 +14,14 @@ class DogFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name"=>$this->faker->name(),
+            "gender"=>$this->faker->randomElement(['boy', 'girl']),
+            "likely_bday"=>$this->faker->date(),
+            "species"=>$this->faker->word(1,true),
+            "external_property"=>$this->faker->sentence(2, true),
+            "interest"=>$this->faker->numberBetween(1,10),
+            "adoption_id"=>$this->faker->numberBetween(1,5),
+            "virtual_adoption_id"=>$this->faker->numberBetween(1,5),
         ];
     }
 }

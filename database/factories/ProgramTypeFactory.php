@@ -14,7 +14,8 @@ class ProgramTypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "program_topic"=>$this->faker->sentence(2, true),
+            
         ];
     }
 }
