@@ -10,6 +10,10 @@ class ProgramType extends Model
     use HasFactory;
     protected $table = 'program_types';
 
+    protected $fillable = ['program_topic'];
+
+    protected $visible = ['program_topic'];
+
     public function programapplication() {
         return $this->hasMany(Programapplication::class);
     }
