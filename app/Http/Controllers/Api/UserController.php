@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Admin;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\AdminCreate;
-use App\Http\Requests\Admin\AdminUpdate;
+use App\Http\Requests\UserCreate;
+use App\Http\Requests\UserUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
-class AdminController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::all();
-        return response()->json($admins);
+        $virtualAdoptions =User::all();
+        return response()->json($virtualAdoptions);
     }
 
     /**
@@ -30,7 +30,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), (new AdminCreate())->rules());
+        $validator = Validator::make($request->all(), (new UserCreate())->rules());
         if ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
@@ -39,10 +39,10 @@ class AdminController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $admin = new Admin();
-        $admin->fill($request->all());
-        $admin->save();
-        return response()->json($admin, 201);
+        $virtualAdoption = new User();
+        $virtualAdoption->fill($request->all());
+        $virtualAdoption->save();
+        return response()->json($virtualAdoption, 201);
     }
 
     /**
@@ -53,11 +53,11 @@ class AdminController extends Controller
      */
     public function show(int $id)
     {
-        $admin = Admin::find($id);
-        if (is_null($admin)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található admin."], 404);
+        $virtualAdoption =User::find($id);
+        if (is_null($virtualAdoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
         }
-        return response()->json($admin);
+        return response()->json($virtualAdoption);
     }
     /**
      * Update the specified resource in storage.
@@ -66,10 +66,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminUpdate $request, int $id)
+    public function update( UserUpdate $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new AdminCreate())->rules());
+            $validator = Validator::make($request->all(), (new UserCreate())->rules());
             if ($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {
@@ -79,13 +79,13 @@ class AdminController extends Controller
                 return response()->json($errormsg, 400);
             }
         }
-        $admin = Admin::find($id);
-        if (is_null($admin)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található admin."], 404);
+        $virtualAdoption =User::find($id);
+        if (is_null($virtualAdoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
         }
-        $admin->fill($request->all());
-        $admin->save();
-        return response()->json($admin, 200);
+        $virtualAdoption->fill($request->all());
+        $virtualAdoption->save();
+        return response()->json($virtualAdoption, 200);
     }
 
     /**
@@ -96,11 +96,11 @@ class AdminController extends Controller
      */
     public function destroy(int $id)
     {
-        $admin = Admin::find($id);
-        if (is_null($admin)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található admin."], 404);
+        $virtualAdoption =User::find($id);
+        if (is_null($virtualAdoption)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
         }
-        Admin::destroy($id);
+       User::destroy($id);
         return response()->noContent();
     }
 }

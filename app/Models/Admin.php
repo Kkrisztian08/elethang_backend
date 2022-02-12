@@ -10,13 +10,15 @@ class Admin extends Model
     use HasFactory;
     protected $table = 'admins';
 
-    protected $fillable = ['name', 'email', 'birthday','address','password'];
+    protected $fillable = ['name', 'email','password', 'birthday','address'];
 
     protected $visible = [
         'name', 
         'email', 
+        'password',
         'birthday',
         'address',
+        
     ];
 
     protected $hidden = [
