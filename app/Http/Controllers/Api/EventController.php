@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\EventCreate;
-use App\Http\Requests\EventUpdate;
+use App\Http\Requests\Event\EventCreate;
+use App\Http\Requests\Event\EventUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Event;
