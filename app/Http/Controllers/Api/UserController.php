@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserCreate;
-use App\Http\Requests\UserUpdate;
+use App\Http\Requests\User\UserCreate;
+use App\Http\Requests\User\UserUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
