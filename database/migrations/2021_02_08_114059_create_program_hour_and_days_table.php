@@ -15,7 +15,8 @@ class CreateProgramHourAndDaysTable extends Migration
     {
         Schema::create('program_hour_and_days', function (Blueprint $table) {
             $table->id();
-            $table->string("time");
+            $table->date("selected_date");
+            $table->time("time");
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class ProgramType extends Model
 
     protected $fillable = ['program_topic'];
 
-    protected $visible = ['program_topic'];
+    protected $visible = ['id','program_topic'];
 
     public function programapplication() {
         return $this->hasMany(Programapplication::class);

@@ -12,5 +12,5 @@ class Event extends Model
 
     protected $fillable = ['event_name', 'date'];
 
-    protected $visible = ['event_name', 'date'];
+    protected $visible = ['id','event_name', 'date'];
 }

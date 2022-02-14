@@ -14,7 +14,6 @@ class ProgramapplicationFactory extends Factory
     public function definition()
     {
         return [
-            "selected_date"=>$this->faker->date(),
             "program_hour_and_day_id"=>$this->faker->numberBetween(1,5),
             "user_id"=>$this->faker->numberBetween(1,5),
             "program_type_id"=>$this->faker->numberBetween(1,5),

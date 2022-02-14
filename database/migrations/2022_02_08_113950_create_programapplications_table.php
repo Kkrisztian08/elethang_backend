@@ -18,7 +18,7 @@ class CreateProgramapplicationsTable extends Migration
     {
         Schema::create('programapplications', function (Blueprint $table) {
             $table->id();
-            $table->date("selected_date");
+            
             $table->foreignIdFor(ProgramHourAndDay::class) //hour_day_id
                 ->constrained()
                 ->onDelete('cascade');

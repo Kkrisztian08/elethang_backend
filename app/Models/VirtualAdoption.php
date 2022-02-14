@@ -10,6 +10,10 @@ class VirtualAdoption extends Model
     use HasFactory;
     protected $table = 'virtual_adoptions';
 
+    protected $fillable = ['adoption_beginning','user_id'];
+    
+    protected $visible = ['id','adoption_beginning','user_id'];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

@@ -12,9 +12,8 @@ class Dog extends Model
 
     protected $fillable = ['name', 'gender','likely_bday', 'species','external_property','interest','adoption_id','virtual_adoption_id'];
 
-    protected $visible = ['name', 'gender','likely_bday', 'species','external_property','interest','adoption_id','virtual_adoption_id'];
+    protected $visible = ['id','name', 'gender','likely_bday', 'species','external_property','interest','adoption_id','virtual_adoption_id'];
 
-    protected $hidden=['interest','adoption_id','virtual_adoption_id'];
 
 
     public function adoption() {

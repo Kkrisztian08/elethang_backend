@@ -10,9 +10,11 @@ class Adoption extends Model
 {
     use HasFactory;
 
+    protected $table = 'adoptions';
+
     protected $fillable = ['user_id', 'adoption_beginning'];
 
-    protected $table = 'adoptions';
+    protected $visible = ['id','user_id', 'adoption_beginning'];
 
     public function user() {
         return $this->belongsTo(User::class);

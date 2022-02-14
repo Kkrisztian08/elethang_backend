@@ -11,6 +11,10 @@ class Programapplication extends Model
 
     protected $table = 'programapplications';
 
+    protected $fillable = ['hour_day_id','user_id','program_type_id'];
+    
+    protected $visible = ['id','hour_day_id','user_id','program_type_id'];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

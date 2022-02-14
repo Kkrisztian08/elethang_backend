@@ -14,7 +14,8 @@ class ProgramHourAndDayFactory extends Factory
     public function definition()
     {
         return [
-            "time"=>$this->faker->date(),
+            "selected_date"=>$this->faker->date(),
+            "time"=>$this->faker->time(),
             
         ];
     }
