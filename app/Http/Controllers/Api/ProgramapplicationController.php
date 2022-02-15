@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProgramapplicationCreate;
-use App\Http\Requests\ProgramapplicationUpdate;
+use App\Http\Requests\Programapplication\ProgramapplicationCreate;
+use App\Http\Requests\Programapplication\ProgramapplicationUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Programapplication;
