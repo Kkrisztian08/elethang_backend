@@ -30,9 +30,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name','email','password','birthday','address','email','email_verified_at','phone_number'];
+    protected $fillable = ['admin','name','email','password','birthday','address','email','email_verified_at','phone_number'];
     
-    protected $visible = ['id','name','email','password','birthday','address','email','email_verified_at','phone_number'];
+    protected $visible = ['id','admin','name','email','password','birthday','address','email','email_verified_at','phone_number'];
 
     /**
      * The attributes that should be cast.
