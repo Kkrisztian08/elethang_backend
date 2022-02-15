@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Models\Adoption;
-use App\Http\Requests\AdoptionCreate;
-use App\Http\Requests\AdoptionUpdate;
+use App\Http\Requests\Adoption\AdoptionCreate;
+use App\Http\Requests\Adoption\AdoptionUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
