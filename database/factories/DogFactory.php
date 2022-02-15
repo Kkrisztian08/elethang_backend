@@ -21,7 +21,6 @@ class DogFactory extends Factory
             "external_property"=>$this->faker->sentence(2, true),
             "interest"=>$this->faker->numberBetween(1,10),
             "adoption_id"=>$this->faker->numberBetween(1,5),
-            "virtual_adoption_id"=>$this->faker->numberBetween(1,5),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdoptionType;
 use Illuminate\Database\Seeder;
 
 class AdoptionTypeSeeder extends Seeder
@@ -13,6 +14,11 @@ class AdoptionTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        AdoptionType::factory()->create([
+            'type'=> 'adoption'
+        ]);
+        AdoptionType::factory()->create([
+            'type'=> 'virtual_adoption'
+        ]);
     }
 }

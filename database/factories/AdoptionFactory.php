@@ -14,6 +14,7 @@ class AdoptionFactory extends Factory
     public function definition()
     {
         return [
+            "adoption_type_id"=>$this->faker->numberBetween(1,2),
             "user_id"=>$this->faker->numberBetween(1,5),
             "adoption_beginning"=>$this->faker->date(),
             

@@ -14,7 +14,7 @@ class AdoptionTypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "type" => $this->faker->randomElement(['adoption', 'virtual_adoption']),
         ];
     }
 }

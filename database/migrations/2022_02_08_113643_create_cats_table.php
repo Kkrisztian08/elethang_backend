@@ -25,9 +25,7 @@ class CreateCatsTable extends Migration
             $table->foreignIdFor(Adoption::class) //adoption_id
                 ->constrained()
                 ->onDelete('cascade');
-            $table->foreignIdFor(VirtualAdoption::class) //virtual_adoption_id
-                ->constrained()
-                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
