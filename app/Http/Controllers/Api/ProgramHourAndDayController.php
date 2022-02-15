@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProgramHourAndDayCreate;
-use App\Http\Requests\ProgramHourAndDayUpdate;
+use App\Http\Requests\ProgramHourAndDay\ProgramHourAndDayCreate;
+use App\Http\Requests\ProgramHourAndDay\ProgramHourAndDayUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\ProgramHourAndDay;

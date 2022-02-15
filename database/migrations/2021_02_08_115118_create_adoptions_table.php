@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AdoptionType;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,10 +17,12 @@ class CreateAdoptionsTable extends Migration
     {
         Schema::create('adoptions', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(AdoptionType::class) //adoption_type_id
+                ->constrained()
+                ->onDelete('cascade');
             $table->foreignIdFor(User::class) //user_id
                 ->constrained()
                 ->onDelete('cascade');
-                
             $table->date("adoption_beginning");
             $table->timestamps();
         });

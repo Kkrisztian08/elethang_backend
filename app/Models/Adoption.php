@@ -19,6 +19,9 @@ class Adoption extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+    public function adoption_type() {
+        return $this->belongsTo(AdoptionType::class);
+    }
     public function dog() {
         return $this->hasMany(Dog::class);
     }
