@@ -18,7 +18,7 @@ class AdoptionTypeSeeder extends Seeder
             'type'=> 'adoption'
         ]);
         AdoptionType::factory()->create([
-            'type'=> 'virtual_adoption'
+            'type'=> 'virtual adoption'
         ]);
     }
 }
