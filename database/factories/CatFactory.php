@@ -18,6 +18,7 @@ class CatFactory extends Factory
             "gender"=>$this->faker->randomElement(['boy', 'girl']),
             "likely_bday"=>$this->faker->date(),
             "external_property"=>$this->faker->sentence(2, true),
+            "description"=>$this->faker->sentence(),
             "interest"=>$this->faker->numberBetween(1,10),
             "adoption_id"=>$this->faker->numberBetween(1,5),
             

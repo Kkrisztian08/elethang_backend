@@ -15,6 +15,7 @@ class EventFactory extends Factory
     {
         return [
             "event_name"=>$this->faker->name(),
+            "description"=>$this->faker->sentence(),
             "date"=>$this->faker->date(),
             
         ];

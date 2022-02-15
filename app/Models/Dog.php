@@ -10,9 +10,9 @@ class Dog extends Model
     use HasFactory;
     protected $table = 'dogs';
 
-    protected $fillable = ['name', 'gender','likely_bday', 'species','external_property','interest','adoption_id'];
+    protected $fillable = ['name', 'gender','description','likely_bday', 'species','external_property','interest','adoption_id'];
 
-    protected $visible = ['id','name', 'gender','likely_bday', 'species','external_property','interest','adoption_id'];
+    protected $visible = ['id','name','description', 'gender','likely_bday', 'species','external_property','interest','adoption_id'];
 
 
 

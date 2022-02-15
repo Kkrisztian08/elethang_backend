@@ -22,6 +22,7 @@ class CreateDogsTable extends Migration
             $table->date("likely_bday");
             $table->string("species");
             $table->string("external_property");
+            $table->string("description");
             $table->integer("interest");
             $table->foreignIdFor(Adoption::class) //adoption_id
                 ->constrained()
