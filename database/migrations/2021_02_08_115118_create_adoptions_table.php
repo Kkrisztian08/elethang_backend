@@ -17,12 +17,12 @@ class CreateAdoptionsTable extends Migration
     {
         Schema::create('adoptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(AdoptionType::class) //adoption_type_id
+            $table->foreignIdFor(AdoptionType::class)->nullable() //adoption_type_id
                 ->constrained()
-                ->onDelete('cascade');
-            $table->foreignIdFor(User::class) //user_id
+                ->onDelete('set null');
+            $table->foreignIdFor(User::class)->nullable() //user_id
                 ->constrained()
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->date("adoption_beginning");
             $table->timestamps();
         });

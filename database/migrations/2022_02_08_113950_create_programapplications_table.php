@@ -19,15 +19,15 @@ class CreateProgramapplicationsTable extends Migration
         Schema::create('programapplications', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignIdFor(ProgramHourAndDay::class) //hour_day_id
+            $table->foreignIdFor(ProgramHourAndDay::class)->nullable() //hour_day_id
                 ->constrained()
-                ->onDelete('cascade');
-            $table->foreignIdFor(User::class) //user_id
+                ->onDelete('set null');
+            $table->foreignIdFor(User::class)->nullable() //user_id
                 ->constrained()
-                ->onDelete('cascade');
-            $table->foreignIdFor(ProgramType::class) //program_id
+                ->onDelete('set null');
+            $table->foreignIdFor(ProgramType::class)->nullable() //program_id
                 ->constrained()
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->timestamps();
         });
     }

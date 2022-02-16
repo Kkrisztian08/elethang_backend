@@ -24,9 +24,9 @@ class CreateDogsTable extends Migration
             $table->string("external_property");
             $table->string("description");
             $table->integer("interest");
-            $table->foreignIdFor(Adoption::class) //adoption_id
+            $table->foreignIdFor(Adoption::class)->nullable() //adoption_id
                 ->constrained()
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->timestamps();
         });
     }
