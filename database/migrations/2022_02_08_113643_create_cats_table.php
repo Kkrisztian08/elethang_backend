@@ -19,7 +19,7 @@ class CreateCatsTable extends Migration
             $table->id();
             $table->string("name");
             $table->string("gender");
-            $table->date("likely_bday");
+            $table->string("likely_bday");
             $table->string("external_property");
             $table->string("description");
             $table->integer("interest");
