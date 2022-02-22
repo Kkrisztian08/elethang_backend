@@ -24,6 +24,13 @@ class DogCreate extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'string|required|max:255',
+            'gender' => 'string|required|max:255',
+            'likely_bday' => 'date|required',
+            'species' => 'string|required|max:255',
+            'external_property' => 'string|required|max:255',
+            'description' => 'string|required',
+            'interest' => 'numeric|integer|required',
             //
         ];
     }

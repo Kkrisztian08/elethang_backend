@@ -24,6 +24,8 @@ class ProgramHourAndDayCreate extends FormRequest
     public function rules()
     {
         return [
+            'selected_date' => 'date|required',
+            'time' => 'time|required',
             //
         ];
     }

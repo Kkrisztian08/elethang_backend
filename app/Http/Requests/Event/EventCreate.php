@@ -24,6 +24,9 @@ class EventCreate extends FormRequest
     public function rules()
     {
         return [
+            'event_name' => 'string|required|max:255',
+            'description' => 'string|required|max:255',
+            'date' => 'date|required',
             //
         ];
     }

@@ -24,6 +24,7 @@ class ProgramTypeCreate extends FormRequest
     public function rules()
     {
         return [
+        'program_topic' => 'required|string|max:255',
             //
         ];
     }
