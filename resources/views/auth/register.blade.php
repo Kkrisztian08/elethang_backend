@@ -61,6 +61,23 @@
                             </div>
                         </div>
 
+
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="admin" id="admin" {{ old('admin') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="admin">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,6 +85,9 @@
                                 </button>
                             </div>
                         </div>
+
+
+
                     </form>
                 </div>
             </div>
