@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Üdvözlöm az Élethang alapitvány adminokat leiró oldalán</h1>
-    <p>Összes beadott munka: {{ $adminCount }}</p>
+    <p>Összes beadott munka: {{ $adminCount ?? ""}}</p>
     <form action="{{ route('admins.index') }}">
         <br>
         <button type="submit">Lássuk a részleteket</button>
