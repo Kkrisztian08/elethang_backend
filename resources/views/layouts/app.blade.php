@@ -21,17 +21,24 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                    <div>
+                        <img src="/img/logo_szerkesztve.png" alt="logo" style="width:35px;" class="rounded" width="45px">
+                    </div>
+                    <div style="margin-left: 20px; ">
+                        Élethang Alapítvány
+                    </div>    
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
@@ -40,18 +47,60 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/mainPage') }}">Főoldal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ url('/adoption') }}">Tudnivalók</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item disabled" href="">Kutyák</a></li>
+                                    <li><a class="dropdown-item disabled" href="">Macskák</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
+                            </li>    
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                            <li class="nav-item dropdown">
+                                <img src="/img/profil.png" type="button" alt="profil" style="width:45px; height: 45px;" class="rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
+                                <ul class="dropdown-menu">
+                                    @if (Route::has('login'))
+                                        <li>
+                                            <a style="color: black;" class="dropdown-item nav-link" href="{{ route('login') }}">Bejelentkezés</a>
+                                        </li>
+                                    @endif
+
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a  style="color: black;" class="dropdown-item nav-link" href="{{ route('register') }}">Regisztráció</a>
+                                        </li>
+                                    @endif
+                                </ul>
+
+                            </li>
                         @else
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ url('/adoptation') }}">Tudnivalók</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ url('/dogs') }}">Kutyák</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/cats') }}">Macskák</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
+                            </li>    
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -78,6 +127,40 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+       <div class="container">
+            <div class="container-fluid rounded">
+                <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
+                <div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Minimum</div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">korházi kiadások</div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">játékok</div>
+                    </div>     
+                    <br>
+                    <div>
+                        <a href="Adomany.php" class="btn btn-outline-success btn-lg kozepre">Támogatásodat köszönjük!</a>
+                    </div>
+                </div>
+                <h4>Bagó Zsuzsanna, Szalai Zsuzsa, Faragóné Gonda Zita, Horgosi Nikolett</h4>
+            </div>    
+       </div>
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+            <div class="container" style="color: white;">
+                <a class="navbar-brand" href="https://www.instagram.com/elethang_alapitvany/">
+                    <img src="/img/instagram.png" alt="Instagram" style="width:40px;" class="rounded-pill"> 
+                </a>
+                Készült
+                <a class="justify-content-center" href="{{ url('/') }}">
+                    <img src="/img/logo_szerkesztve.png" alt="logo" style="width:50px;" class="rounded-pill"> 
+                </a>
+                2022
+                <a class="d-flex" href="https://www.facebook.com/Elethangalapitvany">
+                    <img src="/img/facebook.png" alt="Facebook" style="width:40px;" class="rounded-pill"> 
+                </a>
+            </div>
+        </nav> 
     </div>
 </body>
 </html>

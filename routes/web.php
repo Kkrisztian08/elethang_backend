@@ -15,13 +15,37 @@ use App\Http\Controllers\AdminHomeController;
 |
 */
 
-Route::get('/', [ AdminHomeController::class, 'index' ])->name('home');
 
-Route::resource('admins', AdminController::class);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::get('/', function () {
+    return view('forPages.mainPage');
+});
+Route::get('/aboutUs', function () {
+    return view('forPages.aboutUs');
+});
+Route::get('/cats', function () {
+    return view('forPages.cats');
+});
+Route::get('/dogs', function () {
+    return view('forPages.dogs');
+});
+Route::get('/donation', function () {
+    return view('forPages.donation');
+});
+Route::get('/adoption', function () {
+    return view('forPages.adoption');
+});
+Route::get('/mainPage', function () {
+    return view('forPages.mainPage');
+});
+
+
+
 
 Auth::routes();
 
