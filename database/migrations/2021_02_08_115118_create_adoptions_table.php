@@ -23,7 +23,7 @@ class CreateAdoptionsTable extends Migration
             $table->foreignIdFor(User::class)->nullable() //user_id
                 ->constrained()
                 ->onDelete('set null');
-            $table->date("adoption_beginning");
+            $table->string("adoption_beginning");
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CatFactory extends Factory
     {
         return [
             "name"=>$this->faker->name(),
-            "gender"=>$this->faker->randomElement(['boy', 'girl']),
+            "gender"=>$this->faker->randomElement(['Hím', 'Nőstény']),
             "likely_bday"=>$this->faker->date(),
             "external_property"=>$this->faker->sentence(2, true),
             "description"=>$this->faker->sentence(),
