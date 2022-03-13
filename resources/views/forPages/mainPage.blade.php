@@ -39,8 +39,32 @@
             <div class="col-sm-4">
                 <div class="row">
                     <div class="col-sm-12">
+
+
+                        <table>
+                            <tr>
+                                <th>Név</th>
+                                <th>Nem</th>
+                                <th>Születésnap</th>
+                            </tr>
+                            @foreach ($dogs as $dog)
+                                <tr>
+                                    <td>
+                                        <h3>{{ $dog->name }}</h3>
+                                    </td>
+                                    <td>{{ $dog->gender }}</td>
+                                    <td>{{ $dog->likely_bday }}</td>
+                                    <td>
+                                        <img src="/img/logo_szerkesztve.png" alt="kutya">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+
                         <div class="card">
-                            <h2>Kutyák</h2>
+                                <div class="card-body">
+                                    <h1>Kutyák</h1>
+                                </div>
                         </div>
                         
                     </div>
