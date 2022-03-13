@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\DogController;
+use App\Models\Cat;
+use App\Models\Dog;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,10 @@ use App\Http\Controllers\AdminHomeController;
 
 
 Route::get('/', function () {
-    return view('forPages.mainPage');
+    $dogs =Dog::all();
+    $cats = Cat::all();
+    return view('forPages.mainPage',compact('dogs','cats'));
+
 });
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');

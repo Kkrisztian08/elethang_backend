@@ -4,10 +4,10 @@
     
 
 
-    <div class="contanier">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8">
-                <div class="container rounded ">
+                <div class="rounded">
                     <h1>Röviden rúlunk</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque quaerat vel id excepturi ratione illo molestias veritatis, aliquid culpa unde nihil impedit eaque ad facere voluptate. Eos quas animi blanditiis.</p>
 
@@ -55,7 +55,19 @@
                                     <td>{{ $dog->gender }}</td>
                                     <td>{{ $dog->likely_bday }}</td>
                                     <td>
-                                        <img src="/img/logo_szerkesztve.png" alt="kutya">
+                                        <img src="/img/logo_szerkesztve.png" alt="kutya" style="width: 100%;">
+                                    </td>
+                                </tr>
+                            @endforeach
+                            @foreach ($cats as $cat)
+                                <tr>
+                                    <td>
+                                        <h3>{{ $cat->name }}</h3>
+                                    </td>
+                                    <td>{{ $cat->gender }}</td>
+                                    <td>{{ $cat->likely_bday }}</td>
+                                    <td>
+                                        <img src="/img/logo_szerkesztve.png" alt="kutya" style="width: 100%;">
                                     </td>
                                 </tr>
                             @endforeach

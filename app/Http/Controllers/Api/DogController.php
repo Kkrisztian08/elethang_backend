@@ -16,11 +16,6 @@ class DogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dogs()
-    {
-        $dogs =Dog::all();
-        return view('forPages.mainPage',compact('dogs'));
-    }
     public function index()
     {
         $dogs = Dog::all();
