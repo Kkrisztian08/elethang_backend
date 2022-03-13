@@ -24,7 +24,7 @@ class AdoptionCreate extends FormRequest
     public function rules()
     {
         return [
-            'adoption_beginning' => 'date|required',
+            'adoption_beginning' => 'string|required',
             //
         ];
     }
