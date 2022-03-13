@@ -15,7 +15,7 @@ class DogFactory extends Factory
     {
         return [
             "name"=>$this->faker->name(),
-            "gender"=>$this->faker->randomElement(['boy', 'girl']),
+            "gender"=>$this->faker->randomElement(['Hím', 'Nőstény']),
             "likely_bday"=>$this->faker->date(),
             "species"=>$this->faker->word(1,true),
             "external_property"=>$this->faker->sentence(2, true),
