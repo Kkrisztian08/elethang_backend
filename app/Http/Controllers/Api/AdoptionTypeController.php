@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 
 use App\Models\AdoptionType;
@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AdoptionType\AdoptionTypeCreate;
 use App\Http\Requests\AdoptionType\AdoptionTypeUpdate;
+use App\Http\Controllers\Controller;
 
 class AdoptionTypeController extends Controller
 {
