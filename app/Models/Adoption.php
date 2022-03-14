@@ -12,9 +12,9 @@ class Adoption extends Model
 
     protected $table = 'adoptions';
 
-    protected $fillable = ['user_id', 'adoption_beginning'];
+    protected $fillable = ['user_id', 'adoption_type_id', 'adoption_beginning'];
 
-    protected $visible = ['id','user_id', 'adoption_beginning'];
+    protected $visible = ['id', 'adoption_type_id','user_id', 'adoption_beginning'];
 
     public function user() {
         return $this->belongsTo(User::class);

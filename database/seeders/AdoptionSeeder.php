@@ -14,6 +14,6 @@ class AdoptionSeeder extends Seeder
      */
     public function run()
     {
-        Adoption::factory(5)->create();
+        Adoption::factory(10)->create();
     }
 }
