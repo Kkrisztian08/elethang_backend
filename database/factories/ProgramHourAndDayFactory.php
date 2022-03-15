@@ -15,7 +15,7 @@ class ProgramHourAndDayFactory extends Factory
     {
         return [
             "selected_date"=>$this->faker->date(),
-            "time"=>$this->faker->time(),
+            "time"=>$this->faker->time("H:i"),
             
         ];
     }
