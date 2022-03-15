@@ -25,7 +25,7 @@ class ProgramHourAndDayUpdate extends FormRequest
     {
         return [
             'selected_date' => 'string|required',
-            'time' => 'time|required',
+            'time' => 'string|required',
             //
         ];
     }
