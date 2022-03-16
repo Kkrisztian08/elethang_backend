@@ -50,7 +50,7 @@
                         @guest
                         
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/mainPage') }}">Főoldal</a>
+                                <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
@@ -87,6 +87,10 @@
                             </li>
                         @else
                         
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
                             </li>
@@ -124,29 +128,32 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <main class="py-4">
-                @yield('content')
-            </main>
-        </div>
-
-       <div class="container">
-            <div class="container-fluid rounded">
-                <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
-                <div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">Minimum</div>
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">korházi kiadások</div>
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">játékok</div>
-                    </div>     
-                    <br>
-                    <div>
-                        <a href="Adomany.php" class="btn btn-outline-success btn-lg kozepre">Támogatásodat köszönjük!</a>
+        <div class="container bejegyzesek">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <main class="py-4">
+                            @yield('content')
+                        </main>
                     </div>
                 </div>
-                <h4>Bagó Zsuzsanna, Szalai Zsuzsa, Faragóné Gonda Zita, Horgosi Nikolett</h4>
-            </div>    
-       </div>
+                <div class="col-sm-12">
+
+                    <div class="container">
+                        <div class="container" style="text-align: center">
+                                <br>
+                                <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
+                                <hr>
+                                <img src="/img/adoKep.jpg" class="img-fluid " alt="ado" style="width:50%;">
+                                <br><br>
+                                <div>
+                                    <a href="https://adjukossze.hu/kampany/elethang-alapitvany-telefonos-adomanygyujtes-1802" class="btn btn-outline-success btn-lg kozepre">Támogatásodat köszönjük!</a>
+                                </div>
+                        </div>    
+                    </div>   
+                </div>
+            </div>
+        </div>
 
         <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
             <div class="container" style="color: white;">
