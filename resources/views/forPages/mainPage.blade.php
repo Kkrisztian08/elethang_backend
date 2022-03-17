@@ -11,9 +11,9 @@
                     <h1>Röviden rólunk</h1>
                     <p>Gyálon és környékén működő állatmentő alapítmány vagyunk. Csapatunk önerőből, saját szabadidejéből és szinte anyagi támogatás nélkül segíteti a környékbeli elhagyott állatokat.Alapítványunk jelenleg 5 aktív állatvédőből áll, akik lehetőségükhöz, szabadidejükhöz mérten próbálnak segíteni a bajbajutott kutyákon és cicákon. Mi is ugyanolyan hétköznapi emberek vagyunk, mint bárki más: család, munka és egyéb teendők mellett teszünk az állatvédelemért.</p>
 
-                    <h3>Kedves Támogatóink, Örökbefogadóink!</h3>
-                    <p>Az Élethang Alapítvány hivatalos támogatója lett a DaDo Szuperprémium Kutyatáp.</p>
-                    <p>A gondozásunkban lévő kutyák többsége utcáról, vagy több hetes/hónapos gyepmesteri fogságból kerül hozzánk. Ezért nagyon fontosnak tartjuk, hogy minőségi táppal etessük Őket. Amiért a DaDo kutyatáp mellett döntöttünk: hypoallergén, gyomorkímélő, a táp mellé nem szükséges más táplálék kiegészítőt adni, hisz a DaDo-ban benne vannak az ízületvédők, vitaminok, ásványi anyagok, Omega 3 és 6 esszenciális zsírsavak megfelelő arányban, EPA + DHA, FOS, prebiotikus rostok, stb.).</p>
+                    <h3 style="text-align: center">Kedves Támogatóink, Örökbefogadóink!</h3>
+                    <p>Az Élethang Alapítvány hivatalos támogatója lett a DaDo Szuperprémium Kutyatáp. A gondozásunkban lévő kutyák többsége utcáról, vagy több hetes/hónapos gyepmesteri fogságból kerül hozzánk. Ezért nagyon fontosnak tartjuk, hogy minőségi táppal etessük Őket.</p>
+                    <p>Amiért a DaDo kutyatáp mellett döntöttünk: hypoallergén, gyomorkímélő, a táp mellé nem szükséges más táplálék kiegészítőt adni, hisz a DaDo-ban benne vannak az ízületvédők, vitaminok, ásványi anyagok, Omega 3 és 6 esszenciális zsírsavak megfelelő arányban, EPA + DHA, FOS, prebiotikus rostok, stb.).</p>
 
                     <h3>Ha szeretnéd kutyáinkat tápadománnyal támogatni, akkor ezt többféleképpen teheted meg:</h3>
 
@@ -81,7 +81,7 @@
                                             @guest
                                                 @foreach($dogs as $dog)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <img class="img-fluid" src="/img/cicaProfil.png" alt="kutya kép">
+                                                        <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya kép">
                                                         <h3>{{ $dog->name }}</h3>
                                                         <p>{{ $dog->gender }}</p>
                                                     </div>
@@ -89,7 +89,7 @@
                                             @else
                                                 @foreach($dogs as $dog)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <a href="{{ url('/cats') }}">
+                                                        <a href="{{ url('/dogs') }}">
                                                             <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya kép">
                                                             <h3>{{ $dog->name }}</h3>
                                                             <p>{{ $dog->gender }}</p>
