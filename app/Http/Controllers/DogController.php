@@ -12,9 +12,12 @@ class DogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $dogs=Dog::all();
+        return view('forPages.dogs',compact('dogs'));
+        
     }
 
     /**
