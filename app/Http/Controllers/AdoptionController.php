@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adoption;
 use Illuminate\Http\Request;
 
 class AdoptionController extends Controller
@@ -13,7 +14,8 @@ class AdoptionController extends Controller
      */
     public function index()
     {
-        //
+        $adoption=Adoption::all();
+        return view('forPages.maindPage',compact('adoption'));
     }
 
     /**
@@ -33,8 +35,7 @@ class AdoptionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        //
     }
 
     /**
