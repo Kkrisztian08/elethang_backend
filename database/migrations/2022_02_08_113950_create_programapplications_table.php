@@ -19,7 +19,7 @@ class CreateProgramapplicationsTable extends Migration
         Schema::create('programapplications', function (Blueprint $table) {
             $table->id();
             
-            $table->foreignIdFor(ProgramHourAndDay::class)->nullable() //hour_day_id
+            $table->foreignIdFor(ProgramHourAndDay::class)->nullable() //program_hour_and_day_id
                 ->constrained()
                 ->onDelete('set null');
             $table->foreignIdFor(User::class)->nullable() //user_id
