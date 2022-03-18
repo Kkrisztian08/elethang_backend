@@ -36,5 +36,8 @@ Route::apiResource('/event', EventController::class);
 Route::apiResource('/application', ProgramapplicationController::class);
 Route::apiResource('/hourday', ProgramHourAndDayController::class);
 Route::apiResource('/type', ProgramTypeController::class);
-Route::apiResource('/user', UserController::class);
+Route::apiResource('/users', UserController::class);
 Route::apiResource('/adoptiontype', AdoptionTypeController::class);
+
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/register', [UserController::class, 'store']);

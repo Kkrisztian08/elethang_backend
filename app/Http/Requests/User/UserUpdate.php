@@ -30,7 +30,7 @@ class UserUpdate extends FormRequest
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|email',
-            'password' => 'required|password|min:8|max:30',
+            'password' => 'required|string|min:8|max:30',
             //
         ];
     }

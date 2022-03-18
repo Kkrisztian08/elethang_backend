@@ -8,6 +8,8 @@ use App\Http\Requests\User\UserUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,8 +43,20 @@ class UserController extends Controller
         }
         $virtualAdoption = new User();
         $virtualAdoption->fill($request->all());
-        $virtualAdoption->save();
+        $virtualAdoption->fill([
+            'password' => Hash::make($request->input('password'))
+        ])->save();
         return response()->json($virtualAdoption, 201);
+    }
+    
+    public function login(Request $request) {
+        $credentials = $request->only(['name', 'password']);
+        if (Auth::once($credentials)) {
+            $token = Auth::user()->createToken('apitoken');
+            return response()->json(['token' => $token->plainTextToken]);
+        } else {
+            return response()->json(['message' => 'Helytelen név vagy jelszó'], 401);
+        }
     }
 
     /**
