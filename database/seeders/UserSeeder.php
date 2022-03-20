@@ -60,6 +60,5 @@ class UserSeeder extends Seeder
             'address'=> '1243 Budapest, Kicsi út 45/C',
             'phone_number'=> '+36308579542',
         ]);
-        User::factory(1)->create();
     }
 }
