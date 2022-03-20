@@ -16,6 +16,15 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
+            'admin'=>2,
+            'name'=> 'SuperAdmin',
+            'email'=> 'elethang@gmail.com',
+            'password'=> Hash::make("superadmin2022"),
+            'birthday'=> '2022.03.20',
+            'address'=> 'Élethang utca 10',
+            'phone_number'=> '+36308579522',
+        ]);
+        User::factory()->create([
             'admin'=>1,
             'name'=> 'Kovács Krisztián',
             'email'=> 'k.krisztian0830@gmail.com',
@@ -42,6 +51,15 @@ class UserSeeder extends Seeder
             'address'=> '6550 Kuphal Cliffs Haraland, RI 86869-2052',
             'phone_number'=> '+36206268673',
         ]);
-        User::factory(5)->create();
+        User::factory()->create([
+            'admin'=>0,
+            'name'=> 'Embör',
+            'email'=> 'embor@embor.com',
+            'password'=> Hash::make("1234"),
+            'birthday'=> '2002.10.30.',
+            'address'=> '1243 Budapest, Kicsi út 45/C',
+            'phone_number'=> '+36308579542',
+        ]);
+        User::factory(1)->create();
     }
 }
