@@ -31,18 +31,29 @@ Route::get('/', function () {
     return view('forPages.mainPage',compact('dogs','cats'));
 
 });
+
+
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');
 });
+
+
+
 Route::get('/cats', function () {
-    return view('forPages.cats');
+    $cats = Cat::all();
+    return view('forPages.cats',compact('cats'));
 });
 Route::get('/dogs', function () {
-    return view('forPages.dogs');
+    $dogs =Dog::all();
+    return view('forPages.dogs',compact('dogs'));
 });
+
+
+
 Route::get('/donation', function () {
     return view('forPages.donation');
 });
+
 Route::get('/adoption', function () {
     return view('forPages.adoption');
 });

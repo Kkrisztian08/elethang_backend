@@ -23,3 +23,28 @@ body{
     background-color: #d5ece4;
     border-radius: 30px;
 }
+.szivKarty{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "karty";
+}
+.sziv{
+    margin-inline-start:auto;
+    margin-inline-end: 0.ch;
+    width: auto;
+    max-width: 6ch;
+    height: 1em;
+    z-index: 999 !important;
+    margin-block-start:0.8em;
+    color: coral;
+    grid-area: karty;
+}
+.sziv:hover{
+    color:red;
+}
+.szivKep{
+    z-index: 1 !important;
+    grid-area: karty;
+    width: 100%;
+}
