@@ -15,10 +15,10 @@ class AdoptionTypeSeeder extends Seeder
     public function run()
     {
         AdoptionType::factory()->create([
-            'type'=> 'adoption'
+            'type'=> 'ált. örökbefogadás'
         ]);
         AdoptionType::factory()->create([
-            'type'=> 'virtual adoption'
+            'type'=> 'virtuális örökbefogadás'
         ]);
     }
 }
