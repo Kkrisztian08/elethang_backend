@@ -40,7 +40,7 @@
                                             @guest
                                                 @foreach($cats as $cat)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <img class="img-fluid" src="/img/cicaProfil.png" alt="macska kép">
+                                                        <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
                                                         <h3>{{ $cat->name }}</h3>
                                                         <p>{{ $cat->gender }}</p>
                                                     </div>
@@ -49,7 +49,7 @@
                                                 @foreach($cats as $cat)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                                         <a href="{{ url('/cats') }}">
-                                                            <img class="img-fluid" src="/img/cicaProfil.png" alt="macska kép">
+                                                            <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
                                                             <h3>{{ $cat->name }}</h3>
                                                             <p>{{ $cat->gender }}</p>
                                                         </a>
@@ -81,7 +81,7 @@
                                             @guest
                                                 @foreach($dogs as $dog)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya kép">
+                                                        <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
                                                         <h3>{{ $dog->name }}</h3>
                                                         <p>{{ $dog->gender }}</p>
                                                     </div>
@@ -90,7 +90,7 @@
                                                 @foreach($dogs as $dog)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                                         <a href="{{ url('/dogs') }}">
-                                                            <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya kép">
+                                                            <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
                                                             <h3>{{ $dog->name }}</h3>
                                                             <p>{{ $dog->gender }}</p>
                                                         </a>

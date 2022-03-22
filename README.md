@@ -69,3 +69,13 @@ Ami a honlap klónozásához szükségesek:
     npm update vue-loader és utána újra kétszer az npm run dev)
 
     php artisan migrate (megkérdezni kell e)
+
+
+
+
+
+
+Mindig ha belenyúlunk a routes-ba:
+    composer dump-autoload -o
+    php artisan clear-compiled
+    php artisan optimize
