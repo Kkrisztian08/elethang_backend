@@ -8,6 +8,8 @@ use App\Http\Requests\User\UserUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,8 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $virtualAdoptions =User::all();
-        return response()->json($virtualAdoptions);
+        $users =User::all();
+        return response()->json($users);
     }
 
     /**
@@ -39,10 +41,22 @@ class UserController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $virtualAdoption = new User();
-        $virtualAdoption->fill($request->all());
-        $virtualAdoption->save();
-        return response()->json($virtualAdoption, 201);
+        $user = new User();
+        $user->fill($request->all());
+        $user->fill([
+            'password' => Hash::make($request->input('password'))
+        ])->save();
+        return response()->json($user, 201);
+    }
+    
+    public function login(Request $request) {
+        $credentials = $request->only(['username', 'password']);
+        if (Auth::once($credentials)) {
+            $token = Auth::user()->createToken('apitoken');
+            return response()->json(['token' => $token->plainTextToken]);
+        } else {
+            return response()->json(['message' => 'Helytelen név vagy jelszó'], 401);
+        }
     }
 
     /**
@@ -53,11 +67,11 @@ class UserController extends Controller
      */
     public function show(int $id)
     {
-        $virtualAdoption =User::find($id);
-        if (is_null($virtualAdoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
+        $user =User::find($id);
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
         }
-        return response()->json($virtualAdoption);
+        return response()->json($user);
     }
     /**
      * Update the specified resource in storage.
@@ -79,13 +93,13 @@ class UserController extends Controller
                 return response()->json($errormsg, 400);
             }
         }
-        $virtualAdoption =User::find($id);
-        if (is_null($virtualAdoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
+        $user =User::find($id);
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
         }
-        $virtualAdoption->fill($request->all());
-        $virtualAdoption->save();
-        return response()->json($virtualAdoption, 200);
+        $user->fill($request->all());
+        $user->save();
+        return response()->json($user, 200);
     }
 
     /**
@@ -96,11 +110,16 @@ class UserController extends Controller
      */
     public function destroy(int $id)
     {
-        $virtualAdoption =User::find($id);
-        if (is_null($virtualAdoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található virtualAdoption."], 404);
+        $user =User::find($id);
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
         }
-       User::destroy($id);
+        $user =User::find($id);
+        if ($user->admin==2){
+            return response()->json(["message" => "A Super Admint biztonsági okok miatt nem lehet kitörölni!"], 401);
+        }
+        
+        User::destroy($id);
         return response()->noContent();
     }
 }
