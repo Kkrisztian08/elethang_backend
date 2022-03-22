@@ -43,9 +43,18 @@ Route::get('/cats', function () {
     $cats = Cat::all();
     return view('forPages.cats',compact('cats'));
 });
+Route::get('/cats/{cat}', function ($cat) {
+    $cat = Cat::find($cat);
+    return view('forPages.oneAnimal.cat',compact('cat'));
+});
+
 Route::get('/dogs', function () {
     $dogs =Dog::all();
     return view('forPages.dogs',compact('dogs'));
+});
+Route::get('/dogs/{dog}', function ($dog) {
+    $dog = Cat::find($dog);
+    return view('forPages.oneAnimal.dog',compact('dog'));
 });
 
 
