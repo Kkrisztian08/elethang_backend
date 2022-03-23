@@ -53,7 +53,7 @@ Route::get('/dogs', function () {
     return view('forPages.dogs',compact('dogs'));
 });
 Route::get('/dogs/{dog}', function ($dog) {
-    $dog = Cat::find($dog);
+    $dog = Dog::find($dog);
     return view('forPages.oneAnimal.dog',compact('dog'));
 });
 

@@ -10,9 +10,11 @@
                     <div class="card szivKarty">
                         <h3 class="sziv" style="text-align: right; padding-right: 1em;">{{ $dog->interest}}❤</h3>
                         <img class="img-fluid szivKep" src="/img/kutyaProfil.png" style="padding: 1.5em;" alt="kutya">
-                        <h3>{{ $dog->name }}</h3>
+                        <a href="{{ url('/dogs',$dog->id) }}">
+                            <h3 >{{ $dog->name }}</h3>
+                        </a>
+                        
                         <p>{{ $dog->gender }} {{ ($dog->likely_bday) }}</p>
-                        <a href="{{ route('/dogs/',$dog->id) }}">Megtekintés</a>
                     </div>
                 </div>
             @endforeach
