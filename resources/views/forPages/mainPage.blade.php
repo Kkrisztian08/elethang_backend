@@ -48,7 +48,7 @@
                                             @else
                                                 @foreach($cats as $cat)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <a href="{{ url('/cats') }}">
+                                                        <a href="{{ url('/cats',$cat->id) }}">
                                                             <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
                                                             <h3>{{ $cat->name }}</h3>
                                                             <p>{{ $cat->gender }}</p>
@@ -83,13 +83,13 @@
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                                         <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
                                                         <h3>{{ $dog->name }}</h3>
-                                                        <p>{{ $dog->gender }}</p>
+                                                          <p>{{ $dog->gender }}</p>
                                                     </div>
                                                 @endforeach
                                             @else
                                                 @foreach($dogs as $dog)
                                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <a href="{{ url('/dogs') }}">
+                                                        <a href="{{ url('/dogs',$dog->id) }}">
                                                             <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
                                                             <h3>{{ $dog->name }}</h3>
                                                             <p>{{ $dog->gender }}</p>
