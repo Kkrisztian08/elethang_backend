@@ -118,7 +118,6 @@ class UserController extends Controller
         if ($user->admin==2){
             return response()->json(["message" => "A Super Admint biztonsági okok miatt nem lehet kitörölni!"], 401);
         }
-        
         User::destroy($id);
         return response()->noContent();
     }

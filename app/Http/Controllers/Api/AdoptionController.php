@@ -105,7 +105,7 @@ class AdoptionController extends Controller
         return response()->noContent();
     }
 
-    public function storeDogAdoption(Request $request)
+    /*public function storeDogAdoption(Request $request)
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -126,5 +126,5 @@ class AdoptionController extends Controller
         $dog->fill(['adoption_id' => $adoption->id]);
         $dog->save();
         return response()->json($adoption, 201);
-    }
+    }*/
 }
