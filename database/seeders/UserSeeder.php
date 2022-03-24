@@ -19,31 +19,31 @@ class UserSeeder extends Seeder
             'admin'=>2,
             'name'=> 'Kovács Krisztián',
             'username'=>'Kkrisz08',
-            'email'=> 'k.krisztian0830@gmail.com',
+            'email'=> 'krisz@gmail.com',
             'password'=> Hash::make("kiki1234"),
             'birthday'=> '2001.08.30.',
-            'address'=> '1213 Budapest, Fenyves út 45/C',
-            'phone_number'=> '+36308579522',
+            'address'=> '6550 Kuphal Cliffs Haraland, RI 86869-2052',
+            'phone_number'=> '+36303333333',
         ]);
         User::factory()->create([
             'admin'=>1,
             'name'=> 'Nádasdi Barbara',
             'username'=>'Nbarbi11',
-            'email'=> 'nadasdibarbara15@gmail.com',
+            'email'=> 'barbara@gmail.com',
             'password'=> Hash::make("barbi1234"),
             'birthday'=> '2001.11.01.',
             'address'=> '6550 Kuphal Cliffs Haraland, RI 86869-2052',
-            'phone_number'=> '+36703957846',
+            'phone_number'=> '+36703333333',
         ]);
         User::factory()->create([
             'admin'=>1,
             'name'=> 'Ambrus Pálma Zita',
             'username'=>'APzitu04',
-            'email'=> 'ambrus.zita99@gmail.com',
+            'email'=> 'zita@gmail.com',
             'password'=> Hash::make("zita1234"),
             'birthday'=> '1999.04.14',
             'address'=> '6550 Kuphal Cliffs Haraland, RI 86869-2052',
-            'phone_number'=> '+36206268673',
+            'phone_number'=> '+362063333333',
         ]);
         User::factory()->create([
             'admin'=>0,
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
             'password'=> Hash::make("1234"),
             'birthday'=> '2002.10.30.',
             'address'=> '1243 Budapest, Kicsi út 45/C',
-            'phone_number'=> '+36308579542',
+            'phone_number'=> '+36303333333',
         ]);
         User::factory(5)->create();
     }

@@ -26,13 +26,12 @@ class UserCreate extends FormRequest
         return [
             'admin' => 'required|bool',            
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
+            'username' => 'string|max:255',
             'birthday' => 'required|date',
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|email',
             'password' => 'required|string|min:8|max:30',
-            //
         ];
     }
 }
