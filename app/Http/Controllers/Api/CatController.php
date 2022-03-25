@@ -55,7 +55,7 @@ class CatController extends Controller
     {
         $cat = Cat::find($id);
         if (is_null($cat)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
         }
         return response()->json($cat);
     }
@@ -81,7 +81,7 @@ class CatController extends Controller
         }
         $cat = Cat::find($id);
         if (is_null($cat)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
         }
         $cat->fill($request->all());
         $cat->save();
@@ -98,7 +98,7 @@ class CatController extends Controller
     {
         $cat = Cat::find($id);
         if (is_null($cat)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található cat."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
         }
         Cat::destroy($id);
         return response()->noContent();

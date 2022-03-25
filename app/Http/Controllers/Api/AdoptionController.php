@@ -56,7 +56,7 @@ class AdoptionController extends Controller
     {
         $adoption = Adoption::find($id);
         if (is_null($adoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadás."], 404);
         }
         return response()->json($adoption);
     }
@@ -82,7 +82,7 @@ class AdoptionController extends Controller
         }
         $adoption = Adoption::find($id);
         if (is_null($adoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadás."], 404);
         }
         $adoption->fill($request->all());
         $adoption->save();
@@ -99,7 +99,7 @@ class AdoptionController extends Controller
     {
         $adoption = Adoption::find($id);
         if (is_null($adoption)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoption."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadás."], 404);
         }
         Adoption::destroy($id);
         return response()->noContent();

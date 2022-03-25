@@ -55,7 +55,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         if (is_null($event)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található esemény."], 404);
         }
         return response()->json($event);
     }
@@ -81,7 +81,7 @@ class EventController extends Controller
         }
         $event = Event::find($id);
         if (is_null($event)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található esemény."], 404);
         }
         $event->fill($request->all());
         $event->save();
@@ -98,7 +98,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         if (is_null($event)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található event."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található esemény."], 404);
         }
         Event::destroy($id);
         return response()->noContent();

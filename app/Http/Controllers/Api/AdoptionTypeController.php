@@ -56,7 +56,7 @@ class AdoptionTypeController extends Controller
     {
         $adoptionType = AdoptionType::find($id);
         if (is_null($adoptionType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoptionType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadási tipus."], 404);
         }
         return response()->json($adoptionType);
     }
@@ -82,7 +82,7 @@ class AdoptionTypeController extends Controller
         }
         $adoptionType = AdoptionType::find($id);
         if (is_null($adoptionType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoptionType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadási tipus."], 404);
         }
         $adoptionType->fill($request->all());
         $adoptionType->save();
@@ -99,7 +99,7 @@ class AdoptionTypeController extends Controller
     {
         $adoptionType = AdoptionType::find($id);
         if (is_null($adoptionType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található adoptionType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található örökbefogadási tipus."], 404);
         }
         AdoptionType::destroy($id);
         return response()->noContent();

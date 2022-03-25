@@ -55,7 +55,7 @@ class ProgramTypeController extends Controller
     {
         $programType =ProgramType::find($id);
         if (is_null($programType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program típus."], 404);
         }
         return response()->json($programType);
     }
@@ -81,7 +81,7 @@ class ProgramTypeController extends Controller
         }
         $programType =ProgramType::find($id);
         if (is_null($programType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program típus."], 404);
         }
         $programType->fill($request->all());
         $programType->save();
@@ -98,7 +98,7 @@ class ProgramTypeController extends Controller
     {
         $programType =ProgramType::find($id);
         if (is_null($programType)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programType."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program típus."], 404);
         }
        ProgramType::destroy($id);
         return response()->noContent();

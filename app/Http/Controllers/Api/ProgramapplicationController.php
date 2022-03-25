@@ -56,7 +56,7 @@ class ProgramapplicationController extends Controller
     {
         $programapplication = Programapplication::find($id);
         if (is_null($programapplication)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programapplication."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezés."], 404);
         }
         return response()->json($programapplication);
     }
@@ -82,7 +82,7 @@ class ProgramapplicationController extends Controller
         }
         $programapplication = Programapplication::find($id);
         if (is_null($programapplication)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programapplication."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezés."], 404);
         }
         $programapplication->fill($request->all());
         $programapplication->save();
@@ -99,7 +99,7 @@ class ProgramapplicationController extends Controller
     {
         $programapplication = Programapplication::find($id);
         if (is_null($programapplication)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programapplication."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezés."], 404);
         }
         Programapplication::destroy($id);
         return response()->noContent();

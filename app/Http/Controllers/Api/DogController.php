@@ -55,7 +55,7 @@ class DogController extends Controller
     {
         $dog = Dog::find($id);
         if (is_null($dog)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
         }
         return response()->json($dog);
     }
@@ -81,7 +81,7 @@ class DogController extends Controller
         }
         $dog = Dog::find($id);
         if (is_null($dog)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
         }
         $dog->fill($request->all());
         $dog->save();
@@ -98,7 +98,7 @@ class DogController extends Controller
     {
         $dog = Dog::find($id);
         if (is_null($dog)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
         }
         Dog::destroy($id);
         return response()->noContent();

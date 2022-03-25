@@ -69,7 +69,7 @@ class UserController extends Controller
     {
         $user =User::find($id);
         if (is_null($user)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
         return response()->json($user);
     }
@@ -95,7 +95,7 @@ class UserController extends Controller
         }
         $user =User::find($id);
         if (is_null($user)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
         $user->fill($request->all());
         $user->save();
@@ -112,7 +112,7 @@ class UserController extends Controller
     {
         $user =User::find($id);
         if (is_null($user)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található user."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
         $user =User::find($id);
         if ($user->admin==2){

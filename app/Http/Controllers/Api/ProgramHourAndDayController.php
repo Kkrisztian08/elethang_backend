@@ -55,7 +55,7 @@ class ProgramHourAndDayController extends Controller
     {
         $programHourAndDay =ProgramHourAndDay::find($id);
         if (is_null($programHourAndDay)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programHourAndDay."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
         return response()->json($programHourAndDay);
     }
@@ -81,7 +81,7 @@ class ProgramHourAndDayController extends Controller
         }
         $programHourAndDay =ProgramHourAndDay::find($id);
         if (is_null($programHourAndDay)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programHourAndDay."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
         $programHourAndDay->fill($request->all());
         $programHourAndDay->save();
@@ -98,7 +98,7 @@ class ProgramHourAndDayController extends Controller
     {
         $programHourAndDay =ProgramHourAndDay::find($id);
         if (is_null($programHourAndDay)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található programHourAndDay."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
        ProgramHourAndDay::destroy($id);
         return response()->noContent();
