@@ -33,6 +33,13 @@ Route::get('/', function () {
 });
 
 
+Route::get('/profile', function () {
+    return view('forPages.profile');
+});
+Route::get('/pictures', function () {
+    return view('forPages.pictures');
+});
+
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');
 });
