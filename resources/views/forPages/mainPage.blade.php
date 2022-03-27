@@ -6,13 +6,32 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8" style="padding: 2em;">
                 <div class="rounded" style="text-align: justify">
                     <h1>Röviden rólunk</h1>
                     <p>Gyálon és környékén működő állatmentő alapítmány vagyunk. Csapatunk önerőből, saját szabadidejéből és szinte anyagi támogatás nélkül segíteti a környékbeli elhagyott állatokat. Alapítványunk jelenleg 5 aktív állatvédőből áll, akik lehetőségükhöz, szabadidejükhöz mérten próbálnak segíteni a bajbajutott kutyákon és cicákon. Mi is ugyanolyan hétköznapi emberek vagyunk, mint bárki más: család, munka és egyéb teendők mellett teszünk az állatvédelemért.</p>
-
                 </div>
 
+                <div>
+                    <div  style="text-align: center;" class="row">
+                        <h1>Statisztikák</h1>
+                        <div class="col-12 col-sm-4">
+                            <img src="/img/gombolyag.png" class="img-fluid" alt="gombolyag">
+                            <h1>{{count($cats)}}</h1>  
+                            <h4>Gondozásunk alatt álló macskák száma</h4>                  
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <img src="/img/csont.png" alt="csont" class="img-fluid" >
+                            <h1>{{count($dogs)}}</h1>    
+                            <h4>Gondozásunk alatt álló kutyák száma</h4>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <img src="/img/onkentes.png" alt="onkentes" class="img-fluid">
+                            <h1>{{count($users)}}</h1>
+                            <h4>Regisztrált önkénteseink száma</h4>
+                        </div>
+                    </div>                    
+                </div>
 
                 <!-- Carousel wrapper -->
                 <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">

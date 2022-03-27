@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\DogController;
 use App\Models\Cat;
 use App\Models\Dog;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,8 @@ use App\Models\Dog;
 Route::get('/', function () {
     $dogs =Dog::all();
     $cats = Cat::all();
-    return view('forPages.mainPage',compact('dogs','cats'));
+    $users = User::all();
+    return view('forPages.mainPage',compact('dogs','cats','users'));
 
 });
 
