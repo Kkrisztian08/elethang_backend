@@ -9,7 +9,7 @@
             <div class="col-sm-8">
                 <div class="rounded" style="text-align: justify">
                     <h1>Röviden rólunk</h1>
-                    <p>Gyálon és környékén működő állatmentő alapítmány vagyunk. Csapatunk önerőből, saját szabadidejéből és szinte anyagi támogatás nélkül segíteti a környékbeli elhagyott állatokat.Alapítványunk jelenleg 5 aktív állatvédőből áll, akik lehetőségükhöz, szabadidejükhöz mérten próbálnak segíteni a bajbajutott kutyákon és cicákon. Mi is ugyanolyan hétköznapi emberek vagyunk, mint bárki más: család, munka és egyéb teendők mellett teszünk az állatvédelemért.</p>
+                    <p>Gyálon és környékén működő állatmentő alapítmány vagyunk. Csapatunk önerőből, saját szabadidejéből és szinte anyagi támogatás nélkül segíteti a környékbeli elhagyott állatokat. Alapítványunk jelenleg 5 aktív állatvédőből áll, akik lehetőségükhöz, szabadidejükhöz mérten próbálnak segíteni a bajbajutott kutyákon és cicákon. Mi is ugyanolyan hétköznapi emberek vagyunk, mint bárki más: család, munka és egyéb teendők mellett teszünk az állatvédelemért.</p>
 
                 </div>
 

@@ -113,11 +113,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" style="text-align: center;" aria-labelledby="navbarDropdown">
                                     
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">
+                                        Profil
+                                    </a>
                                     <a class="dropdown-item" href="{{ url('/pictures') }}">
                                         Képek
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('/profile') }}">
-                                        Profil szerkesztése
                                     </a>
                                     <hr class="dropdown-divider">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
