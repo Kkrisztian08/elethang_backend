@@ -119,6 +119,9 @@
                                     <a class="dropdown-item" href="{{ url('/pictures') }}">
                                         Képek
                                     </a>
+                                    <a class="dropdown-item" href="{{ url('/programs') }}">
+                                        Programok
+                                    </a>
                                     <hr class="dropdown-divider">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
