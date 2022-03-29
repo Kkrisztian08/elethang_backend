@@ -6,6 +6,10 @@ use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\DogController;
 use App\Models\Cat;
 use App\Models\Dog;
+use App\Models\Programapplication;
+use App\Models\ProgramHourAndDay;
+use App\Models\ProgramType;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +32,24 @@ use App\Models\Dog;
 Route::get('/', function () {
     $dogs =Dog::all();
     $cats = Cat::all();
-    return view('forPages.mainPage',compact('dogs','cats'));
+    $users = User::all();
+    return view('forPages.mainPage',compact('dogs','cats','users'));
 
 });
 
+
+Route::get('/profile', function () {
+    return view('forPages.profile');
+});
+Route::get('/programs', function () {
+    $apps =Programapplication::all();
+    $times =ProgramHourAndDay::all();
+    $types =ProgramType::all();
+    return view('forPages.programs',compact('apps','times','types'));
+});
+Route::get('/pictures', function () {
+    return view('forPages.pictures');
+});
 
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');

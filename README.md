@@ -10,15 +10,9 @@ Először a backend beizzítását kell megtenni (feltételezve hogy már van):
 
     composer install
 
-
-
     cp .\.env.example .env
 
-
-
     php .\artisan key:generate
-
-
 
     php artisan serve
 
@@ -29,18 +23,11 @@ Először a backend beizzítását kell megtenni (feltételezve hogy már van):
 
 Ami a frontendhez kell plusznak:  
 
-
-
-
     --> új terminal <--
-
-
 
         composer require laravel/ui
 
         php artisan ui vue --auth (login stb)
-
-
 
         php artisan migrate:refresh --seed
 
@@ -55,24 +42,13 @@ Ami a honlap klónozásához szükségesek:
 
 
 
-
-
     composer install
-
-
 
     cp .\.env.example .env
 
-
-
     php .\artisan key:generate
 
-
-
     php artisan migrate:refresh --seed
-
-
-
 
     php artisan serve
 
