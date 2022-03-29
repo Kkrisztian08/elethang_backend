@@ -2,6 +2,7 @@
 <html lang="hu">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/img/logo_szerkesztve.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->

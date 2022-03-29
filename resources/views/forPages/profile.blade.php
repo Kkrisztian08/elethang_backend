@@ -19,6 +19,7 @@
         <div>
             <p>Telefonszám: {{ Auth::user()->phone_number }}</p>
         </div>
+        <h3>állataim?</h3>
         <button>szerkeztés</button>
     </div>
 

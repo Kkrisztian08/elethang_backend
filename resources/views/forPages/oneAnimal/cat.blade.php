@@ -17,7 +17,7 @@
                 <img src="/img/cicaProfil.png" alt="macska">
             </div>
         </div>
-        <button id="orokbeFogad">Örokbefogadás</button>
+        <button  type="button" class="block" id="orokbeFogad">Örokbefogadás</button>
     </div>
 
 @endsection

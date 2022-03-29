@@ -3,9 +3,8 @@
 @section('content')
 
     <div class="container">
-        <h1>Kép feltoltese</h1>
-        <h2>törlése</h2>
-        <h3>mind ide</h3>
+        <h1 style="text-align: center;">Képeim</h1>
+        <h2>Kép feltoltese</h2>
         
         <!-- Carousel wrapper -->
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
