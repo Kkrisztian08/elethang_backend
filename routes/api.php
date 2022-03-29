@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ProgramapplicationController;
 use App\Http\Controllers\Api\ProgramHourAndDayController;
 use App\Http\Controllers\Api\ProgramTypeController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,12 @@ Route::apiResource('/hourday', ProgramHourAndDayController::class);
 Route::apiResource('/type', ProgramTypeController::class);
 Route::apiResource('/users', UserController::class);
 Route::apiResource('/adoptiontype', AdoptionTypeController::class);
+
+Route::get('/user_count',[Statistic::class,'getUserCount']);
+Route::get('/admin_count',[Statistic::class,'getAdminCount']);
+Route::get('/super_admin_count',[Statistic::class,'getSuperAdminCount']);
+Route::get('/dog_count',[Statistic::class,'getDogCount']);
+Route::get('/cat_count',[Statistic::class,'getCatCount']);
 
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'store']);
