@@ -46,5 +46,10 @@ Route::get('/super_admin_count',[Statistic::class,'getSuperAdminCount']);
 Route::get('/dog_count',[Statistic::class,'getDogCount']);
 Route::get('/cat_count',[Statistic::class,'getCatCount']);
 
+Route::get('/adopted_cat_count',[Statistic::class,'getAdoptedCatCount']);
+Route::get('/not_adopted_cat_count',[Statistic::class,'getNotAdoptedCatCount']);
+Route::get('/adopted_dog_count',[Statistic::class,'getAdoptedDogCount']);
+Route::get('/not_adopted_dog_count',[Statistic::class,'getNotAdoptedDogCount']);
+
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'store']);

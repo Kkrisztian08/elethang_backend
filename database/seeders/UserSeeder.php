@@ -47,14 +47,14 @@ class UserSeeder extends Seeder
         ]);
         User::factory()->create([
             'admin'=>0,
-            'name'=> 'Teszt felhasználó',
-            'username'=>'Teszt10',
+            'name'=> 'Kala Pál',
+            'username'=>'Kpal10',
             'email'=> 'embor@embor.com',
-            'password'=> Hash::make("1234"),
+            'password'=> Hash::make("kalapal10"),
             'birthday'=> '2002.10.30.',
             'address'=> '1243 Budapest, Kicsi út 45/C',
             'phone_number'=> '+36303333333',
         ]);
-        User::factory(5)->create();
+        User::factory(10)->create();
     }
 }
