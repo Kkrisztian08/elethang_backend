@@ -11,7 +11,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading{{$app->id}}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$app->id}}" aria-expanded="false" aria-controls="collapse{{$app->id}}">
-                            Program: {{ ($app->program_type_id) }} Idő: {{ $app->program_hour_and_day_id }} állat: ???
+                            Program: {{ ($app->id) }} Idő: {{ $app->user_id }} 
                         </button>
                     </h2>
                     <div id="collapse{{$app->id}}" class="accordion-collapse collapse" aria-labelledby="heading{{$app->id}}" data-bs-parent="#accordionExample">
@@ -20,17 +20,21 @@
                                 <div class="col-3">
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Program választása</option>
-                                        @foreach($types as $type)
-                                            <option value="id{{$type->id}}">{{$type->program_topic}}</option>
+                                        @foreach($infos as $info)
+                                            <option value="{{$info->id}}">{{$info->type}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-3">
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Nap választása</option>
-                                        @foreach($times as $time)
-                                            <option value="{{ $time }}">{{$time->format("Y-m-d")}}</option>
-                                        @endforeach
+                                        <option value="1">Hétfő</option>
+                                        <option value="2">Kedd</option>
+                                        <option value="3">Szerda</option>
+                                        <option value="4">Csütörtök</option>
+                                        <option value="5">Péntek</option>
+                                        <option value="6">Szombat</option>
+                                        <option value="7">Vasárnap</option>
                                     </select>
                                 </div>
                                 <div class="col-3">
@@ -59,17 +63,21 @@
             <div class="col-3">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Program választása</option>
-                    @foreach($types as $type)
-                        <option value="id{{$type->id}}">{{$type->program_topic}}</option>
+                    @foreach($infos as $info)
+                        <option value="{{$info->id}}">{{$info->type}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="col-3">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Nap választása</option>
-                    @foreach($times as $time)
-                        <option value="{{ $time }}">{{$time->format("Y-m-d")}}</option>
-                    @endforeach
+                    <option value="1">Hétfő</option>
+                    <option value="2">Kedd</option>
+                    <option value="3">Szerda</option>
+                    <option value="4">Csütörtök</option>
+                    <option value="5">Péntek</option>
+                    <option value="6">Szombat</option>
+                    <option value="7">Vasárnap</option>
                 </select>
             </div>
             <div class="col-4">

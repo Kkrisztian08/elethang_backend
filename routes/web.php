@@ -8,6 +8,7 @@ use App\Models\Cat;
 use App\Models\Dog;
 use App\Models\Programapplication;
 use App\Models\ProgramHourAndDay;
+use App\Models\ProgramInfo;
 use App\Models\ProgramType;
 use App\Models\User;
 use Carbon\Carbon;
@@ -45,17 +46,8 @@ Route::get('/profile', function () {
 });
 Route::get('/programs', function () {
     $apps =Programapplication::all();
-    //$times =ProgramHourAndDay::all();
-    $types =ProgramType::all();
-    $hetEleje = CarbonImmutable::tomorrow();
-    $times = [
-        $hetEleje,
-        $hetEleje->addDays(1),
-        $hetEleje->addDays(2),
-        $hetEleje->addDays(3),
-        $hetEleje->addDays(4),
-    ];
-    return view('forPages.programs',compact('apps','times','types'));
+    $infos =ProgramInfo::all();
+    return view('forPages.programs',compact('apps', 'infos'));
 });
 Route::get('/pictures', function () {
     return view('forPages.pictures');
