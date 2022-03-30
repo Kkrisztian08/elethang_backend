@@ -5,6 +5,8 @@
     <div class="container">
         <h1 style="text-align: center;">Képeim</h1>
         <h2>Kép feltoltese</h2>
+        <img type="button" class="img-fluid float-end" src="/img/feltolt.png" alt="Mentes">
+        <br><br>
         
         <!-- Carousel wrapper -->
         <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">

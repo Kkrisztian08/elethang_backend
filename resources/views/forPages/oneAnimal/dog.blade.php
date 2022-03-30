@@ -9,12 +9,18 @@
                 <img src="/img/kutyaProfil.png" alt="kutya">
             </div>
             <div class="col-sm-12 col-md-8">
-                <h1>{{$dog->name}}</h1>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h1>{{$dog->name}}</h1>
+                    </div>
+                    <div class="col-sm-3">
+                        <h1 style="text-align: right; color: red;">{{$dog->interest }}❤</h1>
+                    </div>
+                </div>
                 <p id="egyAllat">{{$dog->gender }}</p>
                 <p id="egyAllat">{{$dog->likely_bday }}</p>
                 <p id="egyAllat">{{$dog->external_property }}</p>
                 <p id="egyAllat">{{$dog->description }}</p>
-                <p id="egyAllat">{{$dog->interest }}❤</p>
             </div>
         </div>
         <button  type="button" class="blockB" id="orokbeFogad">Örokbefogadás</button>

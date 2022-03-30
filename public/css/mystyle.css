@@ -25,8 +25,21 @@ body{
     background-color: #d5ece4;
     border-radius: 30px;
 }
+.profilL .list-group-item{
+    text-align: start;
+    border: none;
+    background-color: transparent;
+}
 .szivKarty{
     background-color: transparent;
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "karty";
+}
+.szivKarty:hover{
+    background-color: silver;
     border: none;
     display: grid;
     grid-template-columns: 1fr;
@@ -78,6 +91,17 @@ body{
     color: black;
     padding: 5.5px;
     border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+.blockC {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #b3d3c8;
+    color: #1c643e;
+    border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
