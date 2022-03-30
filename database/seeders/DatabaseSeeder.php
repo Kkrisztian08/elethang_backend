@@ -17,8 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(AdoptionTypeSeeder::class);
         $this->call(AdoptionSeeder::class);
-        $this->call(ProgramTypeSeeder::class);
-        $this->call(ProgramHourAndDaySeeder::class);
+        $this->call(ProgramInfoSeeder::class);
         $this->call(ProgramapplicationSeeder::class);
         $this->call(EventSeeder::class);
         $this->call(CatSeeder::class);     

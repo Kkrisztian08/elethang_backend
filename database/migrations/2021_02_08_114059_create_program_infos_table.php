@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramHourAndDaysTable extends Migration
+class CreateProgramInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateProgramHourAndDaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_hour_and_days', function (Blueprint $table) {
+        Schema::create('program_infos', function (Blueprint $table) {
             $table->id();
-            $table->string("selected_date");
+            $table->string("type");
+            $table->string("date");
             $table->string("time")->from("H:i");
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ class CreateProgramHourAndDaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_hour_and_days');
+        Schema::dropIfExists('program_infos');
     }
 }

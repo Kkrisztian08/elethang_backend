@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CreateProgramDatasTable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,18 +12,15 @@ class Programapplication extends Model
 
     protected $table = 'programapplications';
 
-    protected $fillable = ['program_hour_and_day_id','user_id','program_type_id'];
+    protected $fillable = ['program_info_id','user_id'];
     
-    protected $visible = ['id','program_hour_and_day_id','user_id','program_type_id'];
+    protected $visible = ['id','program_info_id','user_id'];
 
     public function user() {
         return $this->belongsTo(User::class);
     }
-    public function programHourAndDay() {
-        return $this->belongsTo(ProgramHourAndDay::class);
-    }
-    public function programType() {
-        return $this->belongsTo(ProgramType::class);
+    public function programInfo() {
+        return $this->belongsTo(ProgramInfo::class);
     }
     
 }

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProgramType;
+use App\Models\ProgramInfo;
 use Illuminate\Database\Seeder;
 
-class ProgramTypeSeeder extends Seeder
+class ProgramInfoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ProgramTypeSeeder extends Seeder
      */
     public function run()
     {
-        ProgramType::factory(5)->create();
+        ProgramInfo::factory(5)->create();
     }
 }

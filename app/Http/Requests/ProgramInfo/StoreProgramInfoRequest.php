@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\ProgramType;
+namespace App\Http\Requests\ProgramInfo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProgramTypeUpdate extends FormRequest
+class StoreProgramInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class ProgramTypeUpdate extends FormRequest
     public function rules()
     {
         return [
-            'program_topic' => 'required|string|max:255',
-            //
+            'type' => 'string|required',
+            'date' => 'string|required',
+            'time' => 'string|required',
         ];
     }
 }

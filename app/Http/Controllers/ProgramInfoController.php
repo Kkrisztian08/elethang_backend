@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\ProgramInfo;
+use App\Http\Requests\StoreProgramInfoRequest;
+use App\Http\Requests\UpdateProgramInfoRequest;
 
-class ProgramHourAndDayController extends Controller
+class ProgramInfoController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -29,10 +31,10 @@ class ProgramHourAndDayController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreProgramInfoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProgramInfoRequest $request)
     {
         //
     }
@@ -40,10 +42,10 @@ class ProgramHourAndDayController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\ProgramInfo  $programInfo
      * @return \Illuminate\Http\Response
      */
-    public function show(ProgramHourAndDayController $admin)
+    public function show(ProgramInfo $programInfo)
     {
         //
     }
@@ -51,10 +53,10 @@ class ProgramHourAndDayController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\ProgramInfo  $programInfo
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProgramHourAndDayController $admin)
+    public function edit(ProgramInfo $programInfo)
     {
         //
     }
@@ -62,11 +64,11 @@ class ProgramHourAndDayController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Http\Requests\UpdateProgramInfoRequest  $request
+     * @param  \App\Models\ProgramInfo  $programInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProgramHourAndDayController $admin)
+    public function update(UpdateProgramInfoRequest $request, ProgramInfo $programInfo)
     {
         //
     }
@@ -74,10 +76,10 @@ class ProgramHourAndDayController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\ProgramInfo  $programInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProgramHourAndDayController $admin)
+    public function destroy(ProgramInfo $programInfo)
     {
         //
     }

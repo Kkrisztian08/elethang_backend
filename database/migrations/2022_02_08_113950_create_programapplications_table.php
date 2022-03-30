@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\ProgramHourAndDay;
-use App\Models\ProgramType;
+use App\Models\ProgramInfo;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,14 +17,10 @@ class CreateProgramapplicationsTable extends Migration
     {
         Schema::create('programapplications', function (Blueprint $table) {
             $table->id();
-            
-            $table->foreignIdFor(ProgramHourAndDay::class)->nullable() //program_hour_and_day_id
+            $table->foreignIdFor(ProgramInfo::class)->nullable() //program_info_id
                 ->constrained()
                 ->onDelete('set null');
             $table->foreignIdFor(User::class)->nullable() //user_id
-                ->constrained()
-                ->onDelete('set null');
-            $table->foreignIdFor(ProgramType::class)->nullable() //program_id
                 ->constrained()
                 ->onDelete('set null');
             $table->timestamps();

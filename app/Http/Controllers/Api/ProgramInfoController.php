@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\ProgramHourAndDay\ProgramHourAndDayCreate;
-use App\Http\Requests\ProgramHourAndDay\ProgramHourAndDayUpdate;
+use App\Models\ProgramInfo;
+use App\Http\Requests\ProgramInfo\StoreProgramInfoRequest;
+use App\Http\Requests\ProgramInfo\UpdateProgramInfoRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use App\Models\ProgramHourAndDay;
+use Illuminate\Http\Request;
 
-class ProgramHourAndDayController extends Controller
+class ProgramInfoController extends Controller
 {
-   /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $programHourAndDays =ProgramHourAndDay::all();
-        return response()->json($programHourAndDays);
+        $programInfos =ProgramInfo::all();
+        return response()->json($programInfos);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProgramHourAndDayController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), (new ProgramHourAndDayCreate())->rules());
+        $validator = Validator::make($request->all(), (new StoreProgramInfoRequest())->rules());
         if ($validator->fails()) {
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
@@ -39,10 +39,10 @@ class ProgramHourAndDayController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $programHourAndDay = new ProgramHourAndDay();
-        $programHourAndDay->fill($request->all());
-        $programHourAndDay->save();
-        return response()->json($programHourAndDay, 201);
+        $programInfo = new ProgramInfo();
+        $programInfo->fill($request->all());
+        $programInfo->save();
+        return response()->json($programInfo, 201);
     }
 
     /**
@@ -53,11 +53,11 @@ class ProgramHourAndDayController extends Controller
      */
     public function show(int $id)
     {
-        $programHourAndDay =ProgramHourAndDay::find($id);
-        if (is_null($programHourAndDay)) {
+        $programInfo =ProgramInfo::find($id);
+        if (is_null($programInfo)) {
             return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
-        return response()->json($programHourAndDay);
+        return response()->json($programInfo);
     }
     /**
      * Update the specified resource in storage.
@@ -66,10 +66,10 @@ class ProgramHourAndDayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( ProgramHourAndDayUpdate $request, int $id)
+    public function update( UpdateProgramInfoRequest $request, int $id)
     {
         if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new ProgramHourAndDayCreate())->rules());
+            $validator = Validator::make($request->all(), (new UpdateProgramInfoRequest())->rules());
             if ($validator->fails()) {
                 $errormsg = "";
                 foreach ($validator->errors()->all() as $error) {
@@ -79,13 +79,13 @@ class ProgramHourAndDayController extends Controller
                 return response()->json($errormsg, 400);
             }
         }
-        $programHourAndDay =ProgramHourAndDay::find($id);
-        if (is_null($programHourAndDay)) {
+        $programInfo =ProgramInfo::find($id);
+        if (is_null($programInfo)) {
             return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
-        $programHourAndDay->fill($request->all());
-        $programHourAndDay->save();
-        return response()->json($programHourAndDay, 200);
+        $programInfo->fill($request->all());
+        $programInfo->save();
+        return response()->json($programInfo, 200);
     }
 
     /**
@@ -96,11 +96,11 @@ class ProgramHourAndDayController extends Controller
      */
     public function destroy(int $id)
     {
-        $programHourAndDay =ProgramHourAndDay::find($id);
-        if (is_null($programHourAndDay)) {
+        $programInfo =ProgramInfo::find($id);
+        if (is_null($programInfo)) {
             return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
         }
-       ProgramHourAndDay::destroy($id);
+       ProgramInfo::destroy($id);
         return response()->noContent();
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\ProgramHourAndDay;
+namespace App\Http\Requests\ProgramInfo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProgramHourAndDayUpdate extends FormRequest
+class UpdateProgramInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class ProgramHourAndDayUpdate extends FormRequest
     public function rules()
     {
         return [
-            'selected_date' => 'string|required',
+            'type' => 'string|required',
+            'date' => 'string|required',
             'time' => 'string|required',
-            //
         ];
     }
 }

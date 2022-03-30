@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProgramTypeFactory extends Factory
+class ProgramInfoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,9 @@ class ProgramTypeFactory extends Factory
     public function definition()
     {
         return [
-            "program_topic"=>$this->faker->sentence(2, true),
-            
+            "type"=>$this->faker->randomElement(['kutya sétáltatás', 'kutya fésűlés']),
+            "date"=>$this->faker->date(),
+            "time"=>$this->faker->time("H:i"),
         ];
     }
 }
