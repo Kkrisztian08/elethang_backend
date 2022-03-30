@@ -35,7 +35,7 @@ class Statistic extends Controller
     }
 
     public function getAdoptedCatCount() {
-        $adoptedCatCount = Cat::where('cats.adoption_id', '!=', null)->count();
+        $adoptedCatCount = Cat::where('cats.adoption_id', '<>', null)->count();
              return response()->json($adoptedCatCount);
     }
     public function getNotAdoptedCatCount() {
@@ -44,11 +44,11 @@ class Statistic extends Controller
     }
 
     public function getAdoptedDogCount() {
-        $adoptedDogCount = Cat::where('dogs.adoption_id', '!=', null)->count();
+        $adoptedDogCount = Dog::where('dogs.adoption_id', '<>', null)->count();
              return response()->json($adoptedDogCount);
     }
     public function getNotAdoptedDogCount() {
-        $notAdoptedDogCount = Cat::where('dogs.adoption_id', '=', null)->count();
+        $notAdoptedDogCount = Dog::where('dogs.adoption_id', '=', null)->count();
              return response()->json($notAdoptedDogCount);
     }
 }

@@ -20,7 +20,7 @@ class CatFactory extends Factory
             "external_property"=>$this->faker->sentence(2, true),
             "description"=>$this->faker->sentence(),
             "interest"=>$this->faker->numberBetween(1,10),
-            "adoption_id"=>null,
+            "adoption_id"=>$this->faker->numberBetween(1,5),
             
         ];
     }
