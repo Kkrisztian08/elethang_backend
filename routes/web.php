@@ -10,6 +10,8 @@ use App\Models\Programapplication;
 use App\Models\ProgramHourAndDay;
 use App\Models\ProgramType;
 use App\Models\User;
+use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +45,16 @@ Route::get('/profile', function () {
 });
 Route::get('/programs', function () {
     $apps =Programapplication::all();
-    $times =ProgramHourAndDay::all();
+    //$times =ProgramHourAndDay::all();
     $types =ProgramType::all();
+    $hetEleje = CarbonImmutable::tomorrow();
+    $times = [
+        $hetEleje,
+        $hetEleje->addDays(1),
+        $hetEleje->addDays(2),
+        $hetEleje->addDays(3),
+        $hetEleje->addDays(4),
+    ];
     return view('forPages.programs',compact('apps','times','types'));
 });
 Route::get('/pictures', function () {

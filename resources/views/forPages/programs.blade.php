@@ -29,22 +29,21 @@
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Nap választása</option>
                                         @foreach($times as $time)
-                                            <option value="id{{$time->id}}">{{$time->selected_date}}</option>
+                                            <option value="{{ $time }}">{{$time->format("Y-m-d")}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-3">
                                     <select class="form-select" aria-label="Default select example">
                                        <option selected>Turnus választása</option>
-                                        <option value="1">08:00-10:00</option>
-                                        <option value="2">10:00-12:00</option>
-                                        <option value="3">13:00-15:00</option>
-                                        <option value="4">15:00-17:00</option>
-                                        
+                                        <option value="1">08:00</option>
+                                        <option value="2">10:00</option>
+                                        <option value="3">13:00</option>
+                                        <option value="4">15:00</option>
                                     </select>
                                 </div>
 
-                                <div class="col-2"><button type="button" class="block">Módosítás</button></div>
+                                <div class="col-2"><img type="button" class="img-fluid float-end" src="/img/ceruza.png" alt="Szerkeztes"></div>
                                 <div class="col-1"><img type="button" class="img-fluid float-end" src="/img/kuka.png" alt="Torles"></div>
                             </div>
                             
@@ -69,23 +68,26 @@
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Nap választása</option>
                     @foreach($times as $time)
-                        <option value="id{{$time->id}}">{{$time->selected_date}}</option>
+                        <option value="{{ $time }}">{{$time->format("Y-m-d")}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="col-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Turnus választása</option>
-                    <option value="1">08:00-10:00</option>
-                    <option value="2">10:00-12:00</option>
-                    <option value="3">13:00-15:00</option>
-                    <option value="4">15:00-17:00</option>
+                    <option value="1">08:00</option>
+                    <option value="2">10:00</option>
+                    <option value="3">13:00</option>
+                    <option value="4">15:00</option>
                     
                 </select>
             </div>
             <div class="col-2">
                 <button type="button" class="blockB" >Jelentkezés</button>
             </div>
+            <br><br><br><br>
+            <h1>Minden turnus a megadott időponttól 2 órán keresztül tart! A választott turnus vége előll legkésőbb fél órával lehet a rövid ideig tartó programokra megjelenni.</h1>
+            <h2>12:00 és 13:00 között ebédszünet miatt nincsenek programok.</h2>
         </div>
     </div>
 
