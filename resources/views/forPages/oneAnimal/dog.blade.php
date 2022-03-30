@@ -17,7 +17,7 @@
                 <p id="egyAllat">{{$dog->interest }}❤</p>
             </div>
         </div>
-        <button id="orokbeFogad">Örokbefogadás</button>
+        <button  type="button" class="blockB" id="orokbeFogad">Örokbefogadás</button>
     </div>
 
 @endsection

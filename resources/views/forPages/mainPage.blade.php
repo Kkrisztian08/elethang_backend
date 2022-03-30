@@ -14,18 +14,18 @@
 
                 <div>
                     <div class="row" style="text-align: center;">
-                        <div class="col-12 col-sm-4">
-                            <img src="/img/gombolyag.png" alt="gombolyag">
+                        <div class="ezIde col-12 col-sm-4">
+                            <img class="img-fluid" src="/img/gombolyag.png" alt="gombolyag">
                             <h1>{{count($cats)}}</h1>  
                             <h4>Gondozásunk alatt álló macskák száma</h4>                  
                         </div>
-                        <div class="col-12 col-sm-4">
-                            <img src="/img/onkentes.png" alt="onkentes">
+                        <div class="ezIde col-12 col-sm-4">
+                            <img  class="img-fluid" src="/img/onkentes.png" alt="onkentes">
                             <h1>{{count($users)}}</h1>
                             <h4>Regisztrált önkénteseink</h4>
                         </div>
-                        <div class="col-12 col-sm-4">
-                            <img src="/img/csont.png" alt="csont">
+                        <div class="ezIde col-12 col-sm-4">
+                            <img class="img-fluid" src="/img/csont.png" alt="csont">
                             <h1>{{count($dogs)}}</h1>    
                             <h4>Gondozásunk alatt álló kutyák száma</h4>
                         </div>
@@ -97,40 +97,40 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <h2>Macskák</h2>
-                                <div id="cicaCarousel" class="carousel slide" data-bs-ride="carousel">    
+                            <h1>Macskák</h1>
+                            <div id="cicaCarousel" class="carousel slide" data-bs-ride="carousel">    
 
-                                        <!-- The slideshow/carousel -->
-                                        <div class="carousel-inner">
-                                            @guest
-                                                @foreach($cats as $cat)
-                                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <!-- The slideshow/carousel -->
+                                    <div class="carousel-inner">
+                                        @guest
+                                            @foreach($cats as $cat)
+                                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                                    <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
+                                                    <h3>{{ $cat->name }}</h3>
+                                                    <p>{{ $cat->gender }}</p>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            @foreach($cats as $cat)
+                                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                                    <a href="{{ url('/cats',$cat->id) }}">
                                                         <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
                                                         <h3>{{ $cat->name }}</h3>
                                                         <p>{{ $cat->gender }}</p>
-                                                    </div>
-                                                @endforeach
-                                            @else
-                                                @foreach($cats as $cat)
-                                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                                        <a href="{{ url('/cats',$cat->id) }}">
-                                                            <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
-                                                            <h3>{{ $cat->name }}</h3>
-                                                            <p>{{ $cat->gender }}</p>
-                                                        </a>
-                                                    </div>
-                                                @endforeach
-                                            @endguest
-                                        </div>
-                                        
-                                        <!-- Left and right controls/icons -->
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#cicaCarousel" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#cicaCarousel" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                        </button>
-                                </div>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        @endguest
+                                    </div>
+                                    
+                                    <!-- Left and right controls/icons -->
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#cicaCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#cicaCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
+                            </div>
                         </div>
                         
                     </div>
@@ -138,7 +138,6 @@
                         <div class="card">
                                 <div class="card-body">
                                     <h1>Kutyák</h1>
-
                                     <div id="kutyaCarousel" class="carousel slide" data-bs-ride="carousel">    
 
                                         <!-- The slideshow/carousel -->

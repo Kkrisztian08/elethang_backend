@@ -3,9 +3,90 @@
 @section('content')
 
     <div class="container">
-        <h1>Programjaim lista</h1>
-        <h3>név, idő, téma, törlés, móófodítás</h3>
-        <h2>program jelentkezések</h2>
+        <h1 style="text-align: center;">Programjaim</h1>
+        <br>
+ 
+        <div class="accordion" id="accordionExample">
+            @foreach($apps as $app)
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{$app->id}}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$app->id}}" aria-expanded="false" aria-controls="collapse{{$app->id}}">
+                            Program: {{ ($app->program_type_id) }} Idő: {{ $app->program_hour_and_day_id }} állat: ???
+                        </button>
+                    </h2>
+                    <div id="collapse{{$app->id}}" class="accordion-collapse collapse" aria-labelledby="heading{{$app->id}}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Program választása</option>
+                                        @foreach($types as $type)
+                                            <option value="id{{$type->id}}">{{$type->program_topic}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Nap választása</option>
+                                        @foreach($times as $time)
+                                            <option value="id{{$time->id}}">{{$time->selected_date}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                       <option selected>Turnus választása</option>
+                                        <option value="1">08:00-10:00</option>
+                                        <option value="2">10:00-12:00</option>
+                                        <option value="3">13:00-15:00</option>
+                                        <option value="4">15:00-17:00</option>
+                                        
+                                    </select>
+                                </div>
+
+                                <div class="col-2"><button type="button" class="block">Módosítás</button></div>
+                                <div class="col-1"><img type="button" class="img-fluid float-end" src="/img/kuka.png" alt="Torles"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div> 
+        
+        
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Program választása</option>
+                    @foreach($types as $type)
+                        <option value="id{{$type->id}}">{{$type->program_topic}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Nap választása</option>
+                    @foreach($times as $time)
+                        <option value="id{{$time->id}}">{{$time->selected_date}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Turnus választása</option>
+                    <option value="1">08:00-10:00</option>
+                    <option value="2">10:00-12:00</option>
+                    <option value="3">13:00-15:00</option>
+                    <option value="4">15:00-17:00</option>
+                    
+                </select>
+            </div>
+            <div class="col-2">
+                <button type="button" class="blockB" >Jelentkezés</button>
+            </div>
+        </div>
     </div>
 
 @endsection
