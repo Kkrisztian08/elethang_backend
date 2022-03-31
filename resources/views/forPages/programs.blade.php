@@ -17,7 +17,7 @@
                     <div id="collapse{{$app->id}}" class="accordion-collapse collapse" aria-labelledby="heading{{$app->id}}" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-md-3 col-sm-12">
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Program választása</option>
                                         @foreach($infos as $info)
@@ -25,7 +25,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-md-3 col-sm-12">
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>Nap választása</option>
                                         <option value="1">Hétfő</option>
@@ -37,7 +37,7 @@
                                         <option value="7">Vasárnap</option>
                                     </select>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-md-3 col-sm-12">
                                     <select class="form-select" aria-label="Default select example">
                                        <option selected>Turnus választása</option>
                                         <option value="1">08:00</option>
@@ -47,8 +47,10 @@
                                     </select>
                                 </div>
 
-                                <div class="col-2"><img type="button" class="img-fluid float-end" src="/img/ceruza.png" alt="Szerkeztes"></div>
-                                <div class="col-1"><img type="button" class="img-fluid float-end" src="/img/kuka.png" alt="Torles"></div>
+                                <div class="col-md-3 col-sm-12">
+                                    <img type="button" class="img-fluid" style="float:left;" src="/img/ceruza.png" alt="Szerkeztes">
+                                    <img type="button" class="img-fluid" style="float:right;" src="/img/kuka.png" alt="Torles">
+                                </div>
                             </div>
                             
                         </div>
