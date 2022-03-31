@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AdminHomeController;
-use App\Http\Controllers\DogController;
 use App\Models\Cat;
 use App\Models\Dog;
 use App\Models\Programapplication;
@@ -13,6 +10,7 @@ use App\Models\ProgramType;
 use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +42,11 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('forPages.profile');
 });
+
+
+
+
+
 Route::get('/programs', function () {
     $apps =Programapplication::all();
     $infos =ProgramInfo::all();

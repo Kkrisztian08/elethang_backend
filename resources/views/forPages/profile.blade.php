@@ -62,13 +62,7 @@
                 </div>
             </li>
         </ul> 
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-secondary blockC">Szerkeztés</button>
-            </div>
-        </div> 
-
+        <br><br><br><br><br>
         <h3>állataim?</h3>
         
 
