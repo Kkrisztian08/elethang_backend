@@ -7,6 +7,7 @@ use App\Models\Adoption;
 use App\Http\Requests\Adoption\AdoptionCreate;
 use App\Http\Requests\Adoption\AdoptionUpdate;
 use App\Http\Controllers\Controller;
+use App\Models\Cat;
 use App\Models\Dog;
 use Illuminate\Support\Facades\Validator;
 
@@ -117,7 +118,7 @@ class AdoptionController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $dog = Dog::find($request->dog_id->value);
+        $dog = Dog::find($request->dog_id);
         if (is_null($dog)) {
             return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
         }
@@ -128,7 +129,33 @@ class AdoptionController extends Controller
         $adoption->fill($request->all());
         $adoption->save();
         $dog->fill(['adoption_id' => $adoption->id]);
-        $dog->save();
+        $dog->update();
+        return response()->json($adoption, 201);
+    }
+    public function storeCatAdoption(Request $request) 
+    // külön routot létrehozni (metodus)
+    {
+        $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $cat = Cat::find($request->cat_id);
+        if (is_null($cat)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
+        }
+        if($cat->adoption_id!=null){
+            return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
+        }
+        $adoption = new Adoption();
+        $adoption->fill($request->all());
+        $adoption->save();
+        $cat->fill(['adoption_id' => $adoption->id]);
+        $cat->update();
         return response()->json($adoption, 201);
     }
 }

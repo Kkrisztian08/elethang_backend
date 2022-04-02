@@ -51,3 +51,7 @@ Route::get('/not_adopted_dog_count',[Statistic::class,'getNotAdoptedDogCount']);
 
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'store']);
+
+Route::post('/storeDogAdoption',[AdoptionController::class,'storeDogAdoption']);
+
+Route::post('/storeCatAdoption',[AdoptionController::class,'storeCatAdoption']);
