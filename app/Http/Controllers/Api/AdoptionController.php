@@ -34,7 +34,7 @@ class AdoptionController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
-        if ($validator->fails()) {
+        if ($validator->fails()){
             $errormsg = "";
             foreach ($validator->errors()->all() as $error) {
                 $errormsg .= $error . " ";
@@ -119,8 +119,8 @@ class AdoptionController extends Controller
             return response()->json($errormsg, 400);
         }
         $dog = Dog::find($request->dog_id);
-        if (is_null($dog)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
+        if (is_null($dog)){
+            return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
         }
         if($dog->adoption_id!=null){
             return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
@@ -134,8 +134,8 @@ class AdoptionController extends Controller
         $dog->update();
         return response()->json($adoption, 201);
     }
-    public function storeCatAdoption(Request $request) 
 
+    public function storeCatAdoption(Request $request) 
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -162,6 +162,7 @@ class AdoptionController extends Controller
         $cat->update();
         return response()->json($adoption, 201);
     }
+
     public function getDate(){
         return Carbon::now('Europe/Budapest')->format('Y-m-d');
     }
