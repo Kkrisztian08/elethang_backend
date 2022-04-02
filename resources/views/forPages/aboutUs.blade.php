@@ -24,7 +24,7 @@
         </div>
         <div class="col-sm-5">
             <h1>Blur-olni kéne a széleit valahogyan</h1>
-            <img src="/img/aida.jpg" class="img-fluid " alt="Aida">
+            <img src="/img/aida.jpg" class="img-fluid Aida" alt="Aida">
         </div>
     </div>
 

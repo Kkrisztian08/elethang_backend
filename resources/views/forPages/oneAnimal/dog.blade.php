@@ -23,7 +23,12 @@
                 <p id="egyAllat">{{$dog->description }}</p>
             </div>
         </div>
-        <button  type="button" class="blockB" id="orokbeFogad">Örokbefogadás</button>
+        <br>
+        <br>
+        
+        <button  type="button" class="blockC btn btn-success">Örökbefogadás</button>
+        <br>
+        <button  type="button" style="border-radius: 30px !important;" class="blockB btn btn-success">Virtuális örökbefogadás</button>
     </div>
 
 @endsection

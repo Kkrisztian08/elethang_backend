@@ -24,7 +24,12 @@
                 <img src="/img/cicaProfil.png" alt="macska">
             </div>
         </div>
-        <button  type="button" class="block" id="orokbeFogad">Örokbefogadás</button>
+        <br>
+        <br>
+        
+        <button  type="button" class="blockC btn btn-success">Örökbefogadás</button>
+        <br>
+        <button  type="button" style="border-radius: 30px !important;" class="blockB btn btn-success">Virtuális örökbefogadás</button>
     </div>
 
 @endsection
