@@ -9,6 +9,7 @@ use App\Http\Requests\Adoption\AdoptionUpdate;
 use App\Http\Controllers\Controller;
 use App\Models\Cat;
 use App\Models\Dog;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class AdoptionController extends Controller
@@ -107,7 +108,6 @@ class AdoptionController extends Controller
     }
 
     public function storeDogAdoption(Request $request) 
-    // külön routot létrehozni (metodus)
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -126,14 +126,16 @@ class AdoptionController extends Controller
             return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
         }
         $adoption = new Adoption();
-        $adoption->fill($request->all());
+        $adoption->adoption_type_id = $request->adoption_type_id;
+        $adoption->user_id = $request->user_id;
+        $adoption->adoption_beginning =$this->getdate();
         $adoption->save();
         $dog->fill(['adoption_id' => $adoption->id]);
         $dog->update();
         return response()->json($adoption, 201);
     }
     public function storeCatAdoption(Request $request) 
-    // külön routot létrehozni (metodus)
+
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -152,10 +154,15 @@ class AdoptionController extends Controller
             return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
         }
         $adoption = new Adoption();
-        $adoption->fill($request->all());
+        $adoption->adoption_type_id = $request->adoption_type_id;
+        $adoption->user_id = $request->user_id;
+        $adoption->adoption_beginning =$this->getdate();
         $adoption->save();
         $cat->fill(['adoption_id' => $adoption->id]);
         $cat->update();
         return response()->json($adoption, 201);
+    }
+    public function getDate(){
+        return Carbon::now('Europe/Budapest')->format('Y-m-d');
     }
 }
