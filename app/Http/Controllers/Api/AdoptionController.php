@@ -105,9 +105,8 @@ class AdoptionController extends Controller
         return response()->noContent();
     }
 
-    /*public function storeDogAdoption(Request $request) 
-    //egy bool adattagot várjon el az api es amikor javaban kivalsztja 
-    //hogy kutya vagy macska akkor beállitom alapértékként hogy és igy talán sikerül
+    public function storeDogAdoption(Request $request) 
+    // külön routot létrehozni (metodus)
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -122,14 +121,14 @@ class AdoptionController extends Controller
         if (is_null($dog)) {
             return response()->json(["message" => "A megadott azonosítóval nem található dog."], 404);
         }
-        $adoption = new Adoption();
-        $adoption->fill($request->all());
-        $adoption->save();
         if($dog->adoption_id!=null){
             return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
         }
+        $adoption = new Adoption();
+        $adoption->fill($request->all());
+        $adoption->save();
         $dog->fill(['adoption_id' => $adoption->id]);
         $dog->save();
         return response()->json($adoption, 201);
-    }*/
+    }
 }
