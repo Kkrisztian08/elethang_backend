@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ImageUploadController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cat;
 use App\Models\Dog;
+use App\Models\Postimage;
 use App\Models\Programapplication;
 use App\Models\ProgramHourAndDay;
 use App\Models\ProgramInfo;
@@ -26,15 +28,26 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+//For adding an image
+Route::get('/pictures',[ImageUploadController::class,'addImage'])->name('imagesadd');
+
+//For storing an image
+Route::post('/pictures',[ImageUploadController::class,'storeImage'])
+->name('images.store');
+
+
+//For showing an image
+//Route::get('/pictures',[ImageUploadController::class,'viewImage'])->name('images.view');
 
 
 
 
 Route::get('/', function () {
+    $imageData= Postimage::all();
     $dogs =Dog::all();
     $cats = Cat::all();
     $users = User::all();
-    return view('forPages.mainPage',compact('dogs','cats','users'));
+    return view('forPages.mainPage',compact('imageData','dogs','cats','users'));
 
 });
 
@@ -52,9 +65,10 @@ Route::get('/programs', function () {
     $infos =ProgramInfo::all();
     return view('forPages.programs',compact('apps', 'infos'));
 });
-Route::get('/pictures', function () {
-    return view('forPages.pictures');
-});
+/*Route::get('/pictures', function () {
+    $imageData= Postimage::all();
+    return view('forPages.pictures', compact('imageData'));
+});*/
 
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');

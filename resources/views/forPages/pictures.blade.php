@@ -3,148 +3,67 @@
 @section('content')
 
     <div class="container">
-        <h1 style="text-align: center;">Képeim</h1>
         <h2>Kép feltoltese</h2>
         <img type="button" class="img-fluid float-end" src="/img/feltolt.png" alt="Mentes">
         <br><br>
         
-        <!-- Carousel wrapper -->
-        <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-            <!-- Controls -->
-            <div class="d-flex justify-content-center mb-4">
-                <button class="carousel-control-prev position-relative" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next position-relative" type="button" data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next" >
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <!-- Inner -->
-            <div class="carousel-inner py-4">
-                <!-- Single item -->
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp" class="card-img-top" alt="Waterfall" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp" class="card-img-top" alt="Sunset over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Esemény</h5>
-                                        <p class="card-text">Leírás</p>
-                                        <a href="#!" class="btn btn-primary">Törlés</a>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
+        <div class="container">
+            <form method="post" action="{{ route('images.store') }}" 
+                    enctype="multipart/form-data">
+                @csrf
+                <div class="image">
+                    <label><h4>Kép hozzáadása</h4></label>
+                    <input type="file" class="form-control" required name="image">
                 </div>
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp" class="card-img-top" alt="Waterfall" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp" class="card-img-top" alt="Sunset over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="description">
+                    <label><h4>Leírás hozzáadása</h4></label>
+                    <input type="text" class="form-control" required name="description">
                 </div>
-                <!-- Single item -->
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp" class="card-img-top" alt="Waterfall" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 d-none d-lg-block">
-                                <div class="card">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp" class="card-img-top" alt="Sunset over the Sea" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-                                        <a href="#!" class="btn btn-primary">Button</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="post_button">
+                <button type="submit" class="btn btn-success">Add</button>
                 </div>
-            </div>
-            <!-- Inner -->
+            </form>
+            
+            @if ($message = Session::get('success'))
+
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>{{ $message }}!</strong>
+                </div>
+            @endif
         </div>
-        <!-- Carousel wrapper -->
-        
+
+
+
+        <div class="container">
+        <h3>Képeim</h3><hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Kép</th>
+                    <th scope="col">Leírása</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($imageData as $data)
+                    <tr>
+                        <td>
+                            <img src="{{ url('public/Image/'.$data->image) }}" style="height: 100px; width: 150px;">
+                        </td>
+                        <td>{{$data->description}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
 
 
         

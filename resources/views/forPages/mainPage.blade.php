@@ -29,7 +29,26 @@
                         <h4>Gondozásunk alatt álló kutyák száma</h4>
                     </div>
                 </div>
-                <br><br>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Kép</th>
+                            <th scope="col">Leírása</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($imageData as $data)
+                            <tr>
+                                <td>
+                                    <img src="{{ url('public/Image/'.$data->image) }}" style="height: 100px; width: 150px;">
+                                </td>
+                                <td>{{$data->description}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <br>
                 <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
                     <!-- Controls -->
                     <div class="d-flex justify-content-center mb-4">
