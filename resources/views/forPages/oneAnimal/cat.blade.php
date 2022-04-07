@@ -30,6 +30,7 @@
         <button  type="button" class="blockC btn btn-success">Örökbefogadás</button>
         <br>
         <button  type="button" style="border-radius: 30px !important;" class="blockB btn btn-success">Virtuális örökbefogadás</button>
+        <h1>Virtuális örökbefogadók foreach</h1>
     </div>
 
 @endsection

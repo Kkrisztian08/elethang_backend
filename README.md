@@ -21,7 +21,7 @@ Először a backend beizzítását kell megtenni (feltételezve hogy már van):
 
 ----------------------------------------------------
 
-Ami a frontendhez kell plusznak:  
+Ami a frontendhez kellett plusznak:  
 
     --> új terminal <--
 
@@ -59,7 +59,7 @@ Ami a honlap klónozásához szükségesek:
 
 
 
-Mindig ha belenyúlunk a routes-ba:
+Mindig ha belenyúlunk a routes-ba ajánlatos ellenőrzés előtt ezeket a kódsorokat a terminálba írni:
 
     composer dump-autoload -o
 
