@@ -107,7 +107,9 @@ class AdoptionController extends Controller
         return response()->noContent();
     }
 
-    public function storeDogAdoption(Request $request) 
+
+    
+    public function storeDogAdoption(Request $request, int $dog_id) 
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -118,7 +120,7 @@ class AdoptionController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $dog = Dog::find($request->dog_id);
+        $dog = Dog::find($dog_id);
         if (is_null($dog)){
             return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
         }
