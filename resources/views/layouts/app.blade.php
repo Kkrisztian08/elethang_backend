@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="hu">
+
 <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/x-icon" href="/img/logo_szerkesztve.png">
@@ -21,6 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
@@ -31,7 +33,7 @@
                     </div>
                     <div style="margin-left: 20px; ">
                         Élethang Alapítvány
-                    </div>    
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
 
-                    </ul>                    <!-- Left Side Of Navbar -->
+                    </ul> <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
@@ -49,92 +51,95 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/adoption') }}">Tudnivalók</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item disabled" href="">Kutyák</a></li>
-                                    <li><a class="dropdown-item disabled" href="">Macskák</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
-                            </li>    
 
-                            <li class="nav-item dropdown">
-                                <img src="/img/profil.png" type="button" alt="profil" style="width:45px; height: 45px;" class="rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
-                                <ul class="dropdown-menu">
-                                    @if (Route::has('login'))
-                                        <li>
-                                            <a style="color: black;" class="dropdown-item nav-link" href="{{ route('login') }}">Bejelentkezés</a>
-                                        </li>
-                                    @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ url('/adoption') }}">Tudnivalók</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item disabled" href="">Kutyák</a></li>
+                                <li><a class="dropdown-item disabled" href="">Macskák</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
+                        </li>
 
-                                    @if (Route::has('register'))
-                                        <li>
-                                            <a  style="color: black;" class="dropdown-item nav-link" href="{{ route('register') }}">Regisztráció</a>
-                                        </li>
-                                    @endif
-                                </ul>
+                        <li class="nav-item dropdown">
+                            <img src="/img/profil.png" type="button" alt="profil" style="width:45px; height: 45px;" class="rounded-pill dropdown-toggle" data-bs-toggle="dropdown">
+                            <ul class="dropdown-menu">
+                                @if (Route::has('login'))
+                                <li>
+                                    <a style="color: black;" class="dropdown-item nav-link" href="{{ route('login') }}">Bejelentkezés</a>
+                                </li>
+                                @endif
 
-                            </li>
+                                @if (Route::has('register'))
+                                <li>
+                                    <a style="color: black;" class="dropdown-item nav-link" href="{{ route('register') }}">Regisztráció</a>
+                                </li>
+                                @endif
+                            </ul>
+
+                        </li>
                         @else
-                        
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ url('/adoption') }}">Tudnivalók</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="{{ url('/dogs') }}">Kutyák</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/cats') }}">Macskák</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
-                            </li>    
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }}
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Főoldal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/donation') }}">Adomány</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Örökbefogadás</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ url('/adoption') }}">Tudnivalók</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ url('/dogs') }}">Kutyák</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/cats') }}">Macskák</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/aboutUs') }}">Rólunk</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->username }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" style="text-align: center;" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ url('/profile') }}">
+                                    Profil
+                                </a>
+                                <a class="dropdown-item" href="{{ url('/pictures') }}">
+                                    Képek
+                                </a>
+                                <a class="dropdown-item" href="{{ url('/programs') }}">
+                                    Programok
+                                </a>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Kijelentkezés
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" style="text-align: center;" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item" href="{{ url('/profile') }}">
-                                        Profil
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('/pictures') }}">
-                                        Képek
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('/programs') }}">
-                                        Programok
-                                    </a>
-                                    <hr class="dropdown-divider">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Kijelentkezés
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -153,16 +158,16 @@
 
                     <div class="container">
                         <div class="container" style="text-align: center">
-                                <br>
-                                <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
-                                <hr>
-                                <img src="/img/adoKep.jpg" class="img-fluid " alt="ado" style="width:50%;">
-                                <br><br>
-                                <div>
-                                    <a href="https://adjukossze.hu/kampany/elethang-alapitvany-telefonos-adomanygyujtes-1802" class="btn btn-outline-success btn-lg kozepre">Támogatásodat köszönjük!</a>
-                                </div>
-                        </div>    
-                    </div>   
+                            <br>
+                            <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
+                            <hr>
+                            <img src="/img/adoKep.jpg" class="img-fluid " alt="ado" style="width:50%;">
+                            <br><br>
+                            <div>
+                                <a href="https://adjukossze.hu/kampany/elethang-alapitvany-telefonos-adomanygyujtes-1802" class="btn btn-outline-success btn-lg kozepre">Támogatásodat köszönjük!</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -170,18 +175,58 @@
         <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
             <div class="container" style="color: white;">
                 <a class="navbar-brand" href="https://www.instagram.com/elethang_alapitvany/">
-                    <img src="/img/instagram.png" alt="Instagram" style="width:40px;" class="rounded-pill"> 
+                    <img src="/img/instagram.png" alt="Instagram" style="width:40px;" class="rounded-pill">
                 </a>
                 Készült
                 <a class="justify-content-center" href="{{ url('/') }}">
-                    <img src="/img/logo_szerkesztve.png" alt="logo" style="width:50px;" class="rounded-pill"> 
+                    <img src="/img/logo_szerkesztve.png" alt="logo" style="width:50px;" class="rounded-pill">
                 </a>
                 2022
                 <a class="d-flex" href="https://www.facebook.com/Elethangalapitvany">
-                    <img src="/img/facebook.png" alt="Facebook" style="width:40px;" class="rounded-pill"> 
+                    <img src="/img/facebook.png" alt="Facebook" style="width:40px;" class="rounded-pill">
                 </a>
             </div>
-        </nav> 
+        </nav>
     </div>
+
+    <style>
+        .owl-carousel .item {
+            height: 20rem;
+            background: #d5ece4;
+            border-radius: 0px 0px 30px 30px;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .owl-carousel .item h4 {
+            font-weight: 400;
+            margin-top: 0rem;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" />
+    <script>
+        jQuery(document).ready(function($) {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+        })
+    </script>
 </body>
+
 </html>
