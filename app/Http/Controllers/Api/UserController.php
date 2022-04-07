@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\User\UserCreate;
 use App\Http\Requests\User\UserUpdate;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UpdateUserProfile;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -80,19 +81,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( UserUpdate $request, int $id)
+    public function update( UpdateUserProfile $request, int $id)
     {
-        if ($request->isMethod('PUT')) {
-            $validator = Validator::make($request->all(), (new UserCreate())->rules());
-            if ($validator->fails()) {
-                $errormsg = "";
-                foreach ($validator->errors()->all() as $error) {
-                    $errormsg .= $error . " ";
-                }
-                $errormsg = trim($errormsg);
-                return response()->json($errormsg, 400);
-            }
-        }
         $user =User::find($id);
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
