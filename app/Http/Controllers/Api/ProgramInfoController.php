@@ -55,7 +55,7 @@ class ProgramInfoController extends Controller
     {
         $programInfo =ProgramInfo::find($id);
         if (is_null($programInfo)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program infórmáció."], 404);
         }
         return response()->json($programInfo);
     }
@@ -81,7 +81,7 @@ class ProgramInfoController extends Controller
         }
         $programInfo =ProgramInfo::find($id);
         if (is_null($programInfo)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program infórmáció."], 404);
         }
         $programInfo->fill($request->all());
         $programInfo->save();
@@ -98,7 +98,7 @@ class ProgramInfoController extends Controller
     {
         $programInfo =ProgramInfo::find($id);
         if (is_null($programInfo)) {
-            return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezési nap és óra."], 404);
+            return response()->json(["message" => "A megadott azonosítóval nem található program infórmáció."], 404);
         }
        ProgramInfo::destroy($id);
         return response()->noContent();
