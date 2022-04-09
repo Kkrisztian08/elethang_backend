@@ -137,7 +137,7 @@ class AdoptionController extends Controller
         return response()->json($adoption, 201);
     }
 
-    public function storeCatAdoption(Request $request) 
+    public function storeCatAdoption(Request $request, int $cat_id) 
     {
         $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
         if ($validator->fails()) {
@@ -148,7 +148,7 @@ class AdoptionController extends Controller
             $errormsg = trim($errormsg);
             return response()->json($errormsg, 400);
         }
-        $cat = Cat::find($request->cat_id);
+        $cat = Cat::find($cat_id);
         if (is_null($cat)) {
             return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
         }
