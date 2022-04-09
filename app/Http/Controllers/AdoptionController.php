@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Adoption;
+use App\Models\Cat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdoptionController extends Controller
 {
@@ -35,7 +37,22 @@ class AdoptionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        //
+    {   
+        $cat = Cat::find($request->id);
+
+        $data=new Adoption();
+
+        $data->adoption_type_id=1;
+        $data->user_id = Auth::user()->id;
+        $data->adoption_beginning=date('Ymd');
+
+        $data->save();
+        
+       // Cat::where("id", $cat->id)->$cat->adoption_id=$data->id;
+
+
+
+        return back()->with("success", "Az örökbefogadás törlése sikeresen megtörtént.");
     }
 
     /**

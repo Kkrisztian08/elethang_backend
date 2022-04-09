@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdoptionController;
 use App\Http\Controllers\ImageUploadController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cat;
@@ -24,22 +25,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-//For adding an image
-Route::get('/pictures', [ImageUploadController::class, 'addImage'])->name('imagesadd');
-
-//For storing an image
-Route::post('/pictures', [ImageUploadController::class, 'storeImage'])
-    ->name('images.store');
-
-//For deleting an image
-Route::delete("/pictures", [ImageUploadController::class, "deleteImage"])->name("delete");
-
-
-//For showing an image
-//Route::get('/pictures',[ImageUploadController::class,'viewImage'])->name('images.view');
-
-
-
 
 Route::get('/', function () {
     $imageData = Postimage::all();
@@ -50,28 +35,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('/profile', function () {
-    return view('forPages.profile');
+
+
+Route::get('/mainPage', function () {
+    return view('forPages.mainPage');
+});
+Route::get('/donation', function () {
+    return view('forPages.donation');
 });
 
 
-
-
-
-Route::get('/programs', function () {
-    $apps = Programapplication::all();
-    $infos = ProgramInfo::all();
-    return view('forPages.programs', compact('apps', 'infos'));
+Route::get('/adoption', function () {
+    return view('forPages.adoption');
 });
-/*Route::get('/pictures', function () {
-    $imageData= Postimage::all();
-    return view('forPages.pictures', compact('imageData'));
-});*/
-
-Route::get('/aboutUs', function () {
-    return view('forPages.aboutUs');
-});
-
 
 
 Route::get('/cats', function () {
@@ -82,6 +58,7 @@ Route::get('/cats/{cat}', function ($cat) {
     $cat = Cat::find($cat);
     return view('forPages.oneAnimal.cat', compact('cat'));
 });
+Route::post('/cats/{cat}',[AdoptionController::class,'store'])->name('store');
 
 Route::get('/dogs', function () {
     $dogs = Dog::all();
@@ -93,19 +70,27 @@ Route::get('/dogs/{dog}', function ($dog) {
 });
 
 
-
-Route::get('/donation', function () {
-    return view('forPages.donation');
+Route::get('/aboutUs', function () {
+    return view('forPages.aboutUs');
 });
 
-Route::get('/adoption', function () {
-    return view('forPages.adoption');
-});
-Route::get('/mainPage', function () {
-    return view('forPages.mainPage');
+Route::get('/profile', function () {
+    return view('forPages.profile');
 });
 
+Route::get('/pictures', [ImageUploadController::class, 'addImage'])->name('imagesadd');
+Route::post('/pictures', [ImageUploadController::class, 'storeImage'])
+    ->name('images.store');
+Route::delete("/pictures", [ImageUploadController::class, "deleteImage"])->name("delete");
 
+Route::patch("/pictures", [ImageUploadController::class, "editImage"])->name("editImage");
+    
+
+Route::get('/programs', function () {
+    $apps = Programapplication::all();
+    $infos = ProgramInfo::all();
+    return view('forPages.programs', compact('apps', 'infos'));
+});
 
 
 Auth::routes();

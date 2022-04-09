@@ -36,7 +36,7 @@
                     <div class="card">
                         <img src="{{ url('public/Image/'.$data->image) }}" class="card-img-top img-fluid" alt="kepek" />
                         <div class="card-body">
-                            <h4 class="card-title">{{$data->updated_at}}</h4>
+                            <h4 class="card-title">Kép leírása</h4>
                             <p class="card-text d-block text-truncate text-wrap" >
                                 {{$data->description}}
                             </p>

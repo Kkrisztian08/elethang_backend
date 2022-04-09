@@ -191,7 +191,6 @@
 
     <style>
         .owl-carousel .item {
-            height: 20rem;
             background: #d5ece4;
             border-radius: 0px 0px 30px 30px;
             text-align: center;

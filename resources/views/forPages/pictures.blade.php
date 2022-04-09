@@ -8,20 +8,21 @@
     <div class="container" style="padding: 5em;">
         <form method="post" action="{{ route('images.store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="image">
-                <label>
-                    <h4>Kép választása</h4>
-                </label>
-                <input type="file" class="form-control" required name="image">
+            <div style="padding: 1em;">
+                <div class="image">
+                    <label>
+                        <h4>Kép választása</h4>
+                    </label>
+                    <input type="file" class="form-control" required name="image">
+                </div>
+                <div class="description">
+                    <label>
+                        <h4>Leírás hozzáadása</h4>
+                    </label>
+                    <input type="text" class="form-control" required name="description">
+                </div>
             </div>
-            <div class="description">
-                <label>
-                    <h4>Leírás hozzáadása</h4>
-                </label>
-                <input type="text" class="form-control" required name="description">
-            </div>
-
-            <button class="post_button float-end" style="border:none;">
+            <button class="post_button float-end" style="border:none; margin: 0.5em; background-color: transparent;">
                 <img src="/img/feltolt.png" type="submit" class="img-fluid" alt="torol">
             </button>
         </form>
@@ -48,9 +49,16 @@
                     <img style="padding-top: 1.9em;" src="{{ url('public/Image/'.$data->image) }}" class="card-img-top img-fluid" alt="kepek" />
 
                     <div class="card-body">
-                        <p class="d-inline-block text-truncate" style="max-width: 150px;">
-                            {{$data->description}}
-                        </p>
+                        <form action="{{route('editImage')}}" method="post">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="id" value="{{$data->id}}" />
+                            <input type="text" class="form-control" required placeholder="{{$data->description}}" name="description">
+
+                            <button style="text-align: left; padding-right: 0.5em; border:none; background-color: transparent !important;">
+                                <img src="/img/ceruza.png" type="submit" class="img-fluid " alt="Szerkeztes">
+                            </button>
+                        </form>
                     </div>
                     <div class="szivB">
                         <form action="{{route('delete')}}" method="post">
@@ -62,6 +70,8 @@
                             </button>
                         </form>
 
+                    </div>
+                    <div>
                     </div>
                 </div>
             </div>
