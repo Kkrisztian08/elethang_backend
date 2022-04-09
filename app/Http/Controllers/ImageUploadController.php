@@ -31,4 +31,15 @@ class ImageUploadController extends Controller
         return redirect()->route('imagesadd')->with('success','Sikeresen feltöltötte a képet');
     
     }
+    public function deleteImage(Request $request) {
+
+        $kep = Postimage::find($request->id);
+
+        unlink("public/Image/".$kep->image);
+
+        Postimage::where("id", $kep->id)->delete();
+
+        return back()->with("success", "Kép törlése sikeresen megtörtént.");
+
+    }
 }
