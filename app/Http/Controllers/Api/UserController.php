@@ -45,7 +45,7 @@ class UserController extends Controller
         $user = new User();
         $user->admin=0;
         $user->name=$request->name;
-        $user->username=$request->name;
+        $user->username=$request->username;
         $user->birthday=null;
         $user->address=null;
         $user->phone_number=null;
