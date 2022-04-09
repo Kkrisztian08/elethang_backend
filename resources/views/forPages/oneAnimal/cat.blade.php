@@ -26,11 +26,18 @@
         </div>
         <br>
         <br>
-        
-        <button  type="button" class="blockC btn btn-success">Örökbefogadás</button>
-        <br>
-        <button  type="button" style="border-radius: 30px !important;" class="blockB btn btn-success">Virtuális örökbefogadás</button>
-        <h1>Virtuális örökbefogadók foreach</h1>
+        @if($cat->adoption_id!=1)
+            <form action="{{route('store')}}" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{$cat->id}}" />
+                <button style="text-align: right; padding-right: 0.5em; border:none; background-color: transparent !important;">
+                                    
+                    <button  type="submit" class="blockC btn btn-success">Örökbefogadás</button>
+                </button>
+            </form>
+        @else
+            <h1 style="text-align: center;">Ez a cica már örökbe van fogadva</h1>
+        @endif
     </div>
 
 @endsection
