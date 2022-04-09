@@ -6,12 +6,8 @@ use App\Models\Cat;
 use App\Models\Dog;
 use App\Models\Postimage;
 use App\Models\Programapplication;
-use App\Models\ProgramHourAndDay;
 use App\Models\ProgramInfo;
-use App\Models\ProgramType;
 use App\Models\User;
-use Carbon\Carbon;
-use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,11 +25,14 @@ use Illuminate\Support\Facades\Auth;
 
 
 //For adding an image
-Route::get('/pictures',[ImageUploadController::class,'addImage'])->name('imagesadd');
+Route::get('/pictures', [ImageUploadController::class, 'addImage'])->name('imagesadd');
 
 //For storing an image
-Route::post('/pictures',[ImageUploadController::class,'storeImage'])
-->name('images.store');
+Route::post('/pictures', [ImageUploadController::class, 'storeImage'])
+    ->name('images.store');
+
+//For deleting an image
+Route::delete("/pictures", [ImageUploadController::class, "deleteImage"])->name("delete");
 
 
 //For showing an image
@@ -43,12 +42,11 @@ Route::post('/pictures',[ImageUploadController::class,'storeImage'])
 
 
 Route::get('/', function () {
-    $imageData= Postimage::all();
-    $dogs =Dog::all();
+    $imageData = Postimage::all();
+    $dogs = Dog::all();
     $cats = Cat::all();
     $users = User::all();
-    return view('forPages.mainPage',compact('imageData','dogs','cats','users'));
-
+    return view('forPages.mainPage', compact('imageData', 'dogs', 'cats', 'users'));
 });
 
 
@@ -61,9 +59,9 @@ Route::get('/profile', function () {
 
 
 Route::get('/programs', function () {
-    $apps =Programapplication::all();
-    $infos =ProgramInfo::all();
-    return view('forPages.programs',compact('apps', 'infos'));
+    $apps = Programapplication::all();
+    $infos = ProgramInfo::all();
+    return view('forPages.programs', compact('apps', 'infos'));
 });
 /*Route::get('/pictures', function () {
     $imageData= Postimage::all();
@@ -78,20 +76,20 @@ Route::get('/aboutUs', function () {
 
 Route::get('/cats', function () {
     $cats = Cat::all();
-    return view('forPages.cats',compact('cats'));
+    return view('forPages.cats', compact('cats'));
 });
 Route::get('/cats/{cat}', function ($cat) {
     $cat = Cat::find($cat);
-    return view('forPages.oneAnimal.cat',compact('cat'));
+    return view('forPages.oneAnimal.cat', compact('cat'));
 });
 
 Route::get('/dogs', function () {
-    $dogs =Dog::all();
-    return view('forPages.dogs',compact('dogs'));
+    $dogs = Dog::all();
+    return view('forPages.dogs', compact('dogs'));
 });
 Route::get('/dogs/{dog}', function ($dog) {
     $dog = Dog::find($dog);
-    return view('forPages.oneAnimal.dog',compact('dog'));
+    return view('forPages.oneAnimal.dog', compact('dog'));
 });
 
 

@@ -13,17 +13,17 @@
             </div>
             <br><br>
             <div class="row" style="text-align: center;">
-                <div class="ezIde col-12-sm col-md-4">
+                <div class="ezIde col-12-sm col-lg-4">
                     <img class="img-fluid" src="/img/gombolyag.png" alt="gombolyag">
                     <h1>{{count($cats)}}</h1>
                     <h4>Gondozásunk alatt álló macskák száma</h4>
                 </div>
-                <div class="ezIde col-12-sm col-md-4">
+                <div class="ezIde col-12-sm col-lg-4">
                     <img class="img-fluid" src="/img/onkentes.png" alt="onkentes">
                     <h1>{{count($users)}}</h1>
                     <h4>Regisztrált önkénteseink</h4>
                 </div>
-                <div class="ezIde col-sm-12 col-md-4">
+                <div class="ezIde col-sm-12 col-lg-4">
                     <img class="img-fluid" src="/img/csont.png" alt="csont">
                     <h1>{{count($dogs)}}</h1>
                     <h4>Gondozásunk alatt álló kutyák száma</h4>

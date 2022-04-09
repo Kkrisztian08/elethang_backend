@@ -21,21 +21,21 @@
                 <input type="text" class="form-control" required name="description">
             </div>
 
-            <a class="post_button">
-                <img src="/img/feltolt.png" type="submit" class="img-fluid float-end" alt="torol">
-            </a>
+            <button class="post_button float-end" style="border:none;">
+                <img src="/img/feltolt.png" type="submit" class="img-fluid" alt="torol">
+            </button>
         </form>
 
-        @if ($message = Session::get('success'))
-
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>{{ $message }}!</strong>
-        </div>
-        @endif
     </div>
 
 
+    @if ($message = Session::get('success'))
+
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>{{ $message }}!</strong>
+    </div>
+    @endif
 
 
 
@@ -52,9 +52,17 @@
                             {{$data->description}}
                         </p>
                     </div>
-                    <a class="szivB" style="text-align: right; padding-right: 0.5em; " href="#">
-                        <img src="/img/kuka.png" type="button" class="img-fluid float-end" alt="torol">
-                    </a>
+                    <div class="szivB">
+                        <form action="{{route('delete')}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="id" value="{{$data->id}}" />
+                            <button style="text-align: right; padding-right: 0.5em; border:none; background-color: transparent !important;">
+                                <img src="/img/kuka.png" type="submit" class="img-fluid float-end" alt="torol">
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
             @endforeach
