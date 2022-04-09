@@ -43,7 +43,15 @@ class UserController extends Controller
             return response()->json($errormsg, 400);
         }
         $user = new User();
-        $user->fill($request->all());
+        $user->admin=0;
+        $user->name=$request->name;
+        $user->username=$request->username;
+        $user->birthday=null;
+        $user->address=null;
+        $user->phone_number=null;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        
         $user->fill([
             'password' => Hash::make($request->input('password'))
         ])->save();

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AdoptionTypeController;
 use App\Http\Controllers\Api\AdoptionController;
-use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\CatController;
 use App\Http\Controllers\Api\DogController;
 use App\Http\Controllers\Api\EventController;
@@ -28,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/admin', AdminController::class);
+
 Route::apiResource('/adoption', AdoptionController::class);
 Route::apiResource('/cat', CatController::class);
 Route::apiResource('/dog', DogController::class);

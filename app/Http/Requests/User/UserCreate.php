@@ -24,7 +24,7 @@ class UserCreate extends FormRequest
     public function rules()
     {
         return [
-            'admin' => 'required|bool',            
+            'admin' => 'bool',            
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255',
             'birthday' => 'date',
