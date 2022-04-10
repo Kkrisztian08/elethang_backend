@@ -8,7 +8,7 @@ use App\Http\Requests\Programapplication\ProgramapplicationUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Programapplication;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProgramapplicationController extends Controller
 {
@@ -104,4 +104,30 @@ class ProgramapplicationController extends Controller
         Programapplication::destroy($id);
         return response()->noContent();
     }
+    //jelentkezés(Auth)
+    public function storeProgramApplication(Request $request){
+        $validator = Validator::make($request->all(), (new ProgramapplicationCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $programapplication = new Programapplication();
+        $programapplication->fill($request->all());
+        $programapplication->user_id=Auth::id();
+        $programapplication->save();
+        return response()->json($programapplication, 201);
+    }
+
+    //bejelentkezett user programjelentkezési
+    public function showApplication(){
+        $applications = Programapplication::where("user_id", "=", Auth::id());
+        return $applications;
+    }
+    
+
+
 }

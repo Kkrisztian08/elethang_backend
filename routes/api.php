@@ -54,4 +54,9 @@ Route::post('/register', [UserController::class, 'store']);
 Route::post('/dogAdoption/{id}',[AdoptionController::class,'storeDogAdoption']);
 Route::post('/catAdoption/{id}',[AdoptionController::class,'storeCatAdoption']);
 
+//örökbefogadás(Auth)
 Route::middleware('auth:sanctum')->post('/catAdoptionLoggedin/{id}',[AdoptionController::class,'storeCatAdoptionLoggedin']);
+//jelentkezés(Auth)
+Route::middleware('auth:sanctum')->post('/storeProgramApplication',[AdoptionController::class,'storeProgramApplication']);
+//adott felhasználó programjelentkezést
+Route::middleware('auth:sanctum')->post('/showApplication',[AdoptionController::class,'showApplication']);
