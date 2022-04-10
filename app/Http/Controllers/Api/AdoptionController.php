@@ -193,6 +193,33 @@ class AdoptionController extends Controller
         $cat->update();
         return response()->json($adoption, 201);
     }
+    public function storeDogAdoptionLoggedin(Request $request, int $dog_id) 
+    {
+        $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $dog = Dog::find($dog_id);
+        if (is_null($dog)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található kutya."], 404);
+        }
+        if($dog->adoption_id!=null){
+            return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
+        }
+        $adoption = new Adoption();
+        $adoption->adoption_type_id = $request->adoption_type_id;
+        $adoption->user_id = Auth::id();
+        $adoption->adoption_beginning =$this->getdate();
+        $adoption->save();
+        $dog->fill(['adoption_id' => $adoption->id]);
+        $dog->update();
+        return response()->json($adoption, 201);
+    }
 
     public function getDate(){
         return Carbon::now('Europe/Budapest')->format('Y-m-d');
