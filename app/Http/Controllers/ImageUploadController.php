@@ -13,6 +13,18 @@ class ImageUploadController extends Controller
         $imageData= Postimage::where('user_id', Auth::user()->id)->get();
         return view('forPages.pictures', compact('imageData'));
     }
+    public function editImage(Request $request) {
+
+        $kep = Postimage::find($request->id);
+        $kep->fill($request->all());
+        $kep->save();
+
+        return  back()->with('success','Kép szerkesztése sikeresen megtörtént.');
+    
+
+   }
+
+
     
     //Store image
     public function storeImage(Request $request){
