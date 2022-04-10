@@ -175,11 +175,11 @@
                 <a class="navbar-brand" href="https://www.instagram.com/elethang_alapitvany/">
                     <img src="/img/instagram.png" alt="Instagram" style="width:40px;" class="rounded-pill">
                 </a>
-                Készült
+                elethang
                 <a class="justify-content-center" href="https://www.elethangalapitvany.hu/">
                     <img src="/img/logo_szerkesztve.png" alt="logo" style="width:50px;" class="rounded-pill">
                 </a>
-                2022
+                @2022
                 <a class="d-flex" href="https://www.facebook.com/Elethangalapitvany">
                     <img src="/img/facebook.png" alt="Facebook" style="width:40px;" class="rounded-pill">
                 </a>

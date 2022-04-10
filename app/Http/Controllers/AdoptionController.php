@@ -17,8 +17,7 @@ class AdoptionController extends Controller
      */
     public function index()
     {
-        $adoption=Adoption::all();
-        return view('forPages.maindPage',compact('adoption'));
+        //
     }
 
     /**

@@ -11,20 +11,6 @@ use App\Models\ProgramInfo;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
-
 
 Route::get('/', function () {
     $imageData = Postimage::all();
@@ -33,8 +19,6 @@ Route::get('/', function () {
     $users = User::all();
     return view('forPages.mainPage', compact('imageData', 'dogs', 'cats', 'users'));
 });
-
-
 
 
 Route::get('/donation', function () {
@@ -46,7 +30,6 @@ Route::get('/adoption', function () {
     return view('forPages.adoption');
 });
 
-
 Route::get('/cats', function () {
     $cats = Cat::all();
     return view('forPages.cats', compact('cats'));
@@ -56,8 +39,6 @@ Route::get('/cats/{cat}', function ($cat) {
     return view('forPages.oneAnimal.cat', compact('cat'));
 });
 Route::post('/cats/{cat}',[AdoptionController::class,'store'])->name('store');
-
-
 
 Route::get('/dogs', function () {
     $dogs = Dog::all();
@@ -70,12 +51,10 @@ Route::get('/dogs/{dog}', function ($dog) {
 Route::post('/dogs/{dog}',[AdoptionController::class,'dogStore'])->name('dogStore');
 
 
-
-
-
 Route::get('/aboutUs', function () {
     return view('forPages.aboutUs');
 });
+
 
 Route::get('/profile', function () {
     return view('forPages.profile');
@@ -85,10 +64,7 @@ Route::get('/pictures', [ImageUploadController::class, 'addImage'])->name('image
 Route::post('/pictures', [ImageUploadController::class, 'storeImage'])
     ->name('images.store');
 Route::delete("/pictures", [ImageUploadController::class, "deleteImage"])->name("delete");
-
 Route::patch("/pictures", [ImageUploadController::class, "editImage"])->name("editImage");
-    
-
 
 Auth::routes();
 
