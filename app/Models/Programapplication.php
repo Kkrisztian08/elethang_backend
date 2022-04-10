@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CreateProgramDatasTable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

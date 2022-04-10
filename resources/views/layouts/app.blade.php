@@ -126,9 +126,6 @@
                                 <a class="dropdown-item" href="{{ url('/pictures') }}">
                                     Képek
                                 </a>
-                                <a class="dropdown-item" href="{{ url('/programs') }}">
-                                    Programok
-                                </a>
                                 <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -159,6 +156,7 @@
                     <div class="container">
                         <div class="container" style="text-align: center">
                             <br>
+                            <h3>Email címünk: <small>info@elethangalapitvany.hu</small></h3>
                             <h3>Számlaszámunk: OTP Bank Nyrt. 11705008-29915941 Élethang Alapítvány</h3>
                             <hr>
                             <img src="/img/adoKep.jpg" class="img-fluid " alt="ado" style="width:50%;">
@@ -178,7 +176,7 @@
                     <img src="/img/instagram.png" alt="Instagram" style="width:40px;" class="rounded-pill">
                 </a>
                 Készült
-                <a class="justify-content-center" href="{{ url('/') }}">
+                <a class="justify-content-center" href="https://www.elethangalapitvany.hu/">
                     <img src="/img/logo_szerkesztve.png" alt="logo" style="width:50px;" class="rounded-pill">
                 </a>
                 2022
@@ -196,11 +194,11 @@
             text-align: center;
             margin: 0px;
         }
+
         .owl-carousel .item h4 {
             font-weight: 400;
             margin-top: 0rem;
         }
-
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

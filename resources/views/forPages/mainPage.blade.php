@@ -37,7 +37,7 @@
                         <img src="{{ url('public/Image/'.$data->image) }}" class="card-img-top img-fluid" alt="kepek" />
                         <div class="card-body">
                             <h4 class="card-title">Kép leírása</h4>
-                            <p class="card-text d-block text-truncate text-wrap" >
+                            <p class="card-text d-block text-truncate text-wrap">
                                 {{$data->description}}
                             </p>
                         </div>
@@ -60,21 +60,35 @@
                             <div class="carousel-inner">
                                 @guest
                                 @foreach($cats as $cat)
+                                @if($cat->gender=='Kandúr')
                                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                     <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
-                                    <h3>{{ $cat->name }}</h3>
-                                    <p>{{ $cat->gender }}</p>
+                                    <h3 style="color: blue;">{{ $cat->name }}</h3>
                                 </div>
+                                @else
+                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
+                                    <h3 style="color: hotpink;">{{ $cat->name }}</h3>
+                                </div>
+                                @endif
                                 @endforeach
                                 @else
                                 @foreach($cats as $cat)
+                                @if($cat->gender=='Kandúr')
                                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                     <a href="{{ url('/cats',$cat->id) }}">
                                         <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
-                                        <h3>{{ $cat->name }}</h3>
-                                        <p>{{ $cat->gender }}</p>
+                                        <h3 style="color: blue;">{{ $cat->name }}</h3>
                                     </a>
                                 </div>
+                                @else
+                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                    <a href="{{ url('/cats',$cat->id) }}">
+                                        <img class="img-fluid" src="/img/cicaProfil.png" alt="macska">
+                                        <h3 style="color: hotpink;">{{ $cat->name }}</h3>
+                                    </a>
+                                </div>
+                                @endif
                                 @endforeach
                                 @endguest
                             </div>
@@ -99,21 +113,35 @@
                                 <div class="carousel-inner">
                                     @guest
                                     @foreach($dogs as $dog)
+                                    @if($dog->gender=='Kan')
                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                         <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
-                                        <h3>{{ $dog->name }}</h3>
-                                        <p>{{ $dog->gender }}</p>
+                                        <h3 style="color: blue;">{{ $dog->name }}</h3>
                                     </div>
+                                    @else
+                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                        <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
+                                        <h3 style="color: hotpink;">{{ $dog->name }}</h3>
+                                    </div>
+                                    @endif
                                     @endforeach
                                     @else
                                     @foreach($dogs as $dog)
+                                    @if($dog->gender=='Kan')
                                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                         <a href="{{ url('/dogs',$dog->id) }}">
                                             <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
-                                            <h3>{{ $dog->name }}</h3>
-                                            <p>{{ $dog->gender }}</p>
+                                            <h3 style="color: blue;">{{ $dog->name }}</h3>
                                         </a>
                                     </div>
+                                    @else
+                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                        <a href="{{ url('/dogs',$dog->id) }}">
+                                            <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
+                                            <h3 style="color: hotpink;">{{ $dog->name }}</h3>
+                                        </a>
+                                    </div>
+                                    @endif
                                     @endforeach
                                     @endguest
                                 </div>

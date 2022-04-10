@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Adoption;
 use App\Models\Cat;
+use App\Models\Dog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,13 +49,32 @@ class AdoptionController extends Controller
 
         $data->save();
         
-       // Cat::where("id", $cat->id)->$cat->adoption_id=$data->id;
+        $adoptal=Cat::where("id", $cat->id)->first();
+        $adoptal->fill(["adoption_id"=>$data->id]);
+        $adoptal->save();
 
 
-
-        return back()->with("success", "Az örökbefogadás törlése sikeresen megtörtént.");
+        return back()->with("success", "Az örökbefogadás sikeresen megtörtént");
     }
+    public function dogStore(Request $request)
+    {   
+        $dog = Dog::find($request->id);
 
+        $data=new Adoption();
+
+        $data->adoption_type_id=1;
+        $data->user_id = Auth::user()->id;
+        $data->adoption_beginning=date('Y-m-d');
+
+        $data->save();
+        
+        $adoptal=Dog::where("id", $dog->id)->first();
+        $adoptal->fill(["adoption_id"=>$data->id]);
+        $adoptal->save();
+
+
+        return back()->with("success", "Az örökbefogadás sikeresen megtörtént");
+    }
     /**
      * Display the specified resource.
      *

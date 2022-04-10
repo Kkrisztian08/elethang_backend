@@ -11,8 +11,8 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            </div>
+                    <div class="alert alert-success" role="alert">
+                    </div>
                     @endif
                     <h2>A bejelentkezés sikeresen megtörtént</h2>
                 </div>

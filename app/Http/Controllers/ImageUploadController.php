@@ -19,7 +19,7 @@ class ImageUploadController extends Controller
         $kep->fill($request->all());
         $kep->save();
 
-        return  back()->with('success','Kép szerkesztése sikeresen megtörtént.');
+        return  back()->with('success','Kép szerkesztése sikeresen megtörtént');
     
 
    }
@@ -51,7 +51,7 @@ class ImageUploadController extends Controller
 
         Postimage::where("id", $kep->id)->delete();
 
-        return back()->with("success", "Kép törlése sikeresen megtörtént.");
+        return back()->with("success", "Kép törlése sikeresen megtörtént");
 
     }
 }

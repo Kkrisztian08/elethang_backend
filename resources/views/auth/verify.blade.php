@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('Új ellenőrző linket küldtünk az e-mail címére.') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ __('Új ellenőrző linket küldtünk az e-mail címére.') }}
+                    </div>
                     @endif
 
                     {{ __('Mielőtt folytatná, kérjük, ellenőrizze e-mailjében az ellenőrző linket.') }}
