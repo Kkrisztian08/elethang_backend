@@ -64,7 +64,7 @@ class AdoptionController extends Controller
 
         $data->adoption_type_id=1;
         $data->user_id = Auth::user()->id;
-        $data->adoption_beginning=date('Ymd');
+        $data->adoption_beginning=date('Y-m-d');
 
         $data->save();
         

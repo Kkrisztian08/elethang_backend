@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="text-align: justify;">
         <div class="col-md-9 col-sm-12">
             <h3 style="text-align: center">Kedves Támogatóink, Örökbefogadóink!</h3>
             <br>
@@ -11,9 +11,9 @@
             <p>Amiért a DaDo kutyatáp mellett döntöttünk: hypoallergén, gyomorkímélő, a táp mellé nem szükséges más táplálék kiegészítőt adni, hisz a DaDo-ban benne vannak az ízületvédők, vitaminok, ásványi anyagok, Omega 3 és 6 esszenciális zsírsavak megfelelő arányban, EPA + DHA, FOS, prebiotikus rostok, stb.).</p>
             <br><br>
             <h3>Ha szeretnéd kutyáinkat tápadománnyal támogatni, akkor ezt többféleképpen teheted meg:</h3>
-            
+
             <div class="container mt-3">
-                <p>1. Örökbefogadó gazdiként, vagy támogató vásárlóként ha DaDo kutyatápot rendelsz saját kutyádnak a dado-kutyatap.hu/webaruhaz oldalon, akkor a vásárlás értékének 10%-a támogatásként jóváíródik alapítványunk számára. ( a megrendelő keresztneve mellé írjátok oda "Élethang"  )</p>
+                <p>1. Örökbefogadó gazdiként, vagy támogató vásárlóként ha DaDo kutyatápot rendelsz saját kutyádnak a dado-kutyatap.hu/webaruhaz oldalon, akkor a vásárlás értékének 10%-a támogatásként jóváíródik alapítványunk számára. ( a megrendelő keresztneve mellé írjátok oda "Élethang" )</p>
                 <p>2. Tápvásárlási utalványt vehetsz alapítványunk számára a DaDo tápadomány gyűjtő oldalunkon. Utalvány ára: 999 Ft. Ez 1 kg tápadomány, melyhez a DaDo még hozzátesz 0,5 kg tápot, tehát 999 Ft-ért 1,5 kg tápot kapunk. (ha 2 kg-ot szeretnél venni akkor 2x999 Ft + 1 kg a DaDo részéről = 3 kg hypoallergén tápadomány)</p>
             </div>
             <div>A tápadomány gyűjtő oldalunkat itt találod:
@@ -28,27 +28,27 @@
                     <a href="http://hungaropet.com/gyogyir/">
                         <img src="/img/gyogyir.jpg" href="http://hungaropet.com/gyogyir/" alt="tamogato" class="img-fluid">
                     </a>
-                </li>       
+                </li>
                 <li class="list-group-item">
                     <img src="/img/pestimrei.jpg" alt="tamogato" class="img-fluid">
-                </li>       
-                <li class="list-group-item"> 
+                </li>
+                <li class="list-group-item">
                     <img src="/img/dogHoliday.jpg" alt="tamogato" class="img-fluid">
-                </li>       
-                <li class="list-group-item"> 
+                </li>
+                <li class="list-group-item">
                     <img src="/img/dadoLogo.png" alt="tamogato" class="img-fluid">
-                </li>       
-                <li class="list-group-item"> 
+                </li>
+                <li class="list-group-item">
                     <p>Hotel Vau Kutyapanzió</p>
                     <p>Touche-Eyed Kutyapanzió, -kozmetika és kutyaiskola</p>
                     <p>Non-Stop Állatkórház</p>
-                </li>       
-                <li class="list-group-item"> 
+                </li>
+                <li class="list-group-item">
                     <img src="/img/cewe.png" alt="tamogato" class="img-fluid">
-                </li>       
+                </li>
                 <li class="list-group-item">
                     <img src="/img/nmb.jpg" alt="tamogato" class="img-fluid">
-                </li>       
+                </li>
             </ul>
         </div>
     </div>

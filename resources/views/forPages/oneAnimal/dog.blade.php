@@ -4,19 +4,12 @@
 
 <div class="container">
 
-    <div class="row">
+    <div class="row" style="text-align: justify;">
         <div class="col-sm-12 col-md-4">
             <img src="/img/kutyaProfil.png" alt="kutya">
         </div>
         <div class="col-sm-12 col-md-8">
-            <div class="row">
-                <div class="col-sm-9">
-                    <h1>{{$dog->name}} <small>({{$dog->gender }})</small></h1>
-                </div>
-                <div class="col-sm-3">
-                    <h1 style="text-align: right; color: red;">{{$dog->interest }}❤</h1>
-                </div>
-            </div>
+            <h1>{{$dog->name}} <small>({{$dog->gender }})</small></h1>
             <p id="egyAllat">{{$dog->likely_bday }}</p>
             <p id="egyAllat">{{$dog->external_property }}</p>
             <p id="egyAllat">{{$dog->description }}</p>
