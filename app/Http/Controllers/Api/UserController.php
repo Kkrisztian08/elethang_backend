@@ -43,7 +43,12 @@ class UserController extends Controller
             return response()->json($errormsg, 400);
         }
         $user = new User();
-        $user->admin=0;
+        if(!empty($request->input('admin'))){
+            $user->admin=$request->admin;
+        }else{
+            $user->admin=0;
+        }
+        
         $user->name=$request->name;
         $user->username=$request->username;
         if(!empty($request->input('birthday'))){
