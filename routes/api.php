@@ -53,3 +53,5 @@ Route::post('/register', [UserController::class, 'store']);
 
 Route::post('/dogAdoption/{id}',[AdoptionController::class,'storeDogAdoption']);
 Route::post('/catAdoption/{id}',[AdoptionController::class,'storeCatAdoption']);
+
+Route::middleware('auth:sanctum')->post('/catAdoptionLoggedin/{id}',[AdoptionController::class,'storeCatAdoptionLoggedin']);
