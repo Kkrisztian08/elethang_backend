@@ -37,9 +37,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/mainPage', function () {
-    return view('forPages.mainPage');
-});
 Route::get('/donation', function () {
     return view('forPages.donation');
 });
@@ -60,6 +57,8 @@ Route::get('/cats/{cat}', function ($cat) {
 });
 Route::post('/cats/{cat}',[AdoptionController::class,'store'])->name('store');
 
+
+
 Route::get('/dogs', function () {
     $dogs = Dog::all();
     return view('forPages.dogs', compact('dogs'));
@@ -68,6 +67,10 @@ Route::get('/dogs/{dog}', function ($dog) {
     $dog = Dog::find($dog);
     return view('forPages.oneAnimal.dog', compact('dog'));
 });
+Route::post('/dogs/{dog}',[AdoptionController::class,'dogStore'])->name('dogStore');
+
+
+
 
 
 Route::get('/aboutUs', function () {
@@ -85,12 +88,6 @@ Route::delete("/pictures", [ImageUploadController::class, "deleteImage"])->name(
 
 Route::patch("/pictures", [ImageUploadController::class, "editImage"])->name("editImage");
     
-
-Route::get('/programs', function () {
-    $apps = Programapplication::all();
-    $infos = ProgramInfo::all();
-    return view('forPages.programs', compact('apps', 'infos'));
-});
 
 
 Auth::routes();
