@@ -75,12 +75,12 @@ class PostimageSeeder extends Seeder
             "description"=> "Mesél a szél"
         ]);
         Postimage::factory()->create([  
-            "image"=> "202204101901276149341_4993294794041659_844609555768743910_n.jpg.jpg",
+            "image"=> "202204101901276149341_4993294794041659_844609555768743910_n.jpg",
             "user_id"=> 3,
             "description"=> "Szia, Imádlak!"
         ]);
         Postimage::factory()->create([  
-            "image"=> "202204101901276149341_4993294794041659_844609555768743910_n.jpg.jpg",
+            "image"=> "202204101902276158432_4993341784036960_4042511419671271939_n.jpg",
             "user_id"=> 3,
             "description"=> "Tájkép"
         ]);
