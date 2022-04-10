@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cat;
 use App\Models\Dog;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AdoptionController extends Controller
@@ -158,6 +159,34 @@ class AdoptionController extends Controller
         $adoption = new Adoption();
         $adoption->adoption_type_id = $request->adoption_type_id;
         $adoption->user_id = $request->user_id;
+        $adoption->adoption_beginning =$this->getdate();
+        $adoption->save();
+        $cat->fill(['adoption_id' => $adoption->id]);
+        $cat->update();
+        return response()->json($adoption, 201);
+    }
+
+    public function storeCatAdoptionLoggedin(Request $request, int $cat_id) 
+    {
+        $validator = Validator::make($request->all(), (new AdoptionCreate())->rules());
+        if ($validator->fails()) {
+            $errormsg = "";
+            foreach ($validator->errors()->all() as $error) {
+                $errormsg .= $error . " ";
+            }
+            $errormsg = trim($errormsg);
+            return response()->json($errormsg, 400);
+        }
+        $cat = Cat::find($cat_id);
+        if (is_null($cat)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található macska."], 404);
+        }
+        if($cat->adoption_id!=null){
+            return response()->json(["message" => "A kiválasztott állat már örökbe van fogadva."], 409);
+        }
+        $adoption = new Adoption();
+        $adoption->adoption_type_id = $request->adoption_type_id;
+        $adoption->user_id = Auth::id();
         $adoption->adoption_beginning =$this->getdate();
         $adoption->save();
         $cat->fill(['adoption_id' => $adoption->id]);

@@ -43,15 +43,33 @@ class UserController extends Controller
             return response()->json($errormsg, 400);
         }
         $user = new User();
-        $user->admin=0;
+        if(!empty($request->input('admin'))){
+            $user->admin=$request->admin;
+        }else{
+            $user->admin=0;
+        }
+        
         $user->name=$request->name;
         $user->username=$request->username;
-        $user->birthday=null;
-        $user->address=null;
-        $user->phone_number=null;
+        if(!empty($request->input('birthday'))){
+            $user->birthday=$request->birthday;
+        }else{
+            $user->birthday=null;
+        }
+
+        if(!empty($request->input('address'))){
+            $user->address=$request->address;
+        }else{
+            $user->address=null;
+        }
+
+        if(!empty($request->input('phone_number'))){
+            $user->phone_number=$request->phone_number;
+        }else{
+            $user->phone_number=null;
+        }
         $user->email=$request->email;
         $user->password=$request->password;
-        
         $user->fill([
             'password' => Hash::make($request->input('password'))
         ])->save();
@@ -96,7 +114,9 @@ class UserController extends Controller
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
         $user->fill($request->all());
-        $user->save();
+        $user->fill([
+            'password' => Hash::make($request->input('password'))
+        ])->save();
         return response()->json($user, 200);
     }
 

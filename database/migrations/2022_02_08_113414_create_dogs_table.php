@@ -22,7 +22,7 @@ class CreateDogsTable extends Migration
             $table->string("likely_bday");
             $table->string("species");
             $table->string("external_property");
-            $table->string("description");
+            $table->longText("description");
             $table->integer("interest");
             $table->foreignIdFor(Adoption::class)->nullable() //adoption_id
                 ->constrained()
