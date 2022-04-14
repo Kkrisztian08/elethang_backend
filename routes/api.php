@@ -42,7 +42,6 @@ Route::get('/admin_count',[Statistic::class,'getAdminCount']);
 Route::get('/super_admin_count',[Statistic::class,'getSuperAdminCount']);
 Route::get('/dog_count',[Statistic::class,'getDogCount']);
 Route::get('/cat_count',[Statistic::class,'getCatCount']);
-
 Route::get('/adopted_cat_count',[Statistic::class,'getAdoptedCatCount']);
 Route::get('/not_adopted_cat_count',[Statistic::class,'getNotAdoptedCatCount']);
 Route::get('/adopted_dog_count',[Statistic::class,'getAdoptedDogCount']);
@@ -53,6 +52,9 @@ Route::post('/register', [UserController::class, 'store']);
 
 Route::post('/dogAdoption/{id}',[AdoptionController::class,'storeDogAdoption']);
 Route::post('/catAdoption/{id}',[AdoptionController::class,'storeCatAdoption']);
+
+Route::put('/adminPermission/{id}', [UserController::class, 'adminJog']);
+Route::put('/adminPermissionGone/{id}', [UserController::class, 'adminJogElvesz']);
 
 //örökbefogadás MACSKA(Auth)
 Route::middleware('auth:sanctum')->post('/catAdoptionLoggedin/{id}',[AdoptionController::class,'storeCatAdoptionLoggedin']);

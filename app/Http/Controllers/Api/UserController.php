@@ -139,4 +139,40 @@ class UserController extends Controller
         User::destroy($id);
         return response()->noContent();
     }
+
+    public function adminJog(int $id)
+    {
+        $user =User::find($id);
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
+        }
+        $user =User::find($id);
+        if ($user->admin==0) {
+            $user->admin=1;
+            $user->save();
+            return response()->json($user, 200);
+        }elseif($user->admin==1){
+            $user->admin=2;
+            $user->save();
+            return response()->json($user, 200);
+        }
+    }
+    public function adminJogElvesz(int $id)
+    {
+        $user =User::find($id);
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
+        }
+        $user =User::find($id);
+        if ($user->admin==1) {
+            $user->admin=0;
+            $user->save();
+            return response()->json($user, 200);
+        }elseif($user->admin==2){
+            $user->admin=1;
+            $user->save();
+            return response()->json($user, 200);
+        }
+        
+    }
 }
