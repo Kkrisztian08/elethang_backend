@@ -13,7 +13,7 @@
 
         </div>
         <div class="col-sm-12 col-md-4">
-            <img src="/img/cicaProfil.png" alt="macska">
+            <img  class="img-fluid" src="/img/cicaProfil.png" alt="macska">
         </div>
     </div>
     <br>

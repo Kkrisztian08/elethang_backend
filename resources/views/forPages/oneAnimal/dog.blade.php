@@ -6,7 +6,7 @@
 
     <div class="row" style="text-align: justify;">
         <div class="col-sm-12 col-md-4">
-            <img src="/img/kutyaProfil.png" alt="kutya">
+            <img class="img-fluid" src="/img/kutyaProfil.png" alt="kutya">
         </div>
         <div class="col-sm-12 col-md-8">
             <h1>{{$dog->name}} <small>({{$dog->gender }})</small></h1>
