@@ -14,6 +14,6 @@ class ProgramapplicationSeeder extends Seeder
      */
     public function run()
     {
-        Programapplication::factory(5)->create();
+        //Programapplication::factory(5)->create();
     }
 }
