@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProgramInfo;
-use App\Http\Requests\StoreProgramInfoRequest;
-use App\Http\Requests\UpdateProgramInfoRequest;
+use App\Http\Requests\ProgramInfo\StoreProgramInfoRequest;
+use App\Http\Requests\ProgramInfo\UpdateProgramInfoRequest;
 
 class ProgramInfoController extends Controller
 {
