@@ -191,7 +191,7 @@ class AdoptionController extends Controller
         $adoption->save();
         $cat->fill(['adoption_id' => $adoption->id]);
         $cat->update();
-        return response()->json($adoption, 201);
+        return response()->json(["message" => "Sikeresen örökbefogadta"], 200);
     }
     public function storeDogAdoptionLoggedin(Request $request, int $dog_id) 
     {
@@ -218,7 +218,7 @@ class AdoptionController extends Controller
         $adoption->save();
         $dog->fill(['adoption_id' => $adoption->id]);
         $dog->update();
-        return response()->json($adoption, 201);
+        return response()->json(["message" => "Sikeresen örökbefogadta"], 200);
     }
 
     public function getDate(){

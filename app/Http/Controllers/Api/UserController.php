@@ -113,11 +113,33 @@ class UserController extends Controller
         if (is_null($user)) {
             return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
         }
-        $user->fill($request->all());
-        $user->fill([
-            'password' => Hash::make($request->input('password'))
-        ])->save();
-        return response()->json($user, 200);
+        if(isset($request->admin)){
+            $user->admin = $request->admin;
+        }
+        if(isset($request->name)){
+            $user->name = $request->name;
+        }
+        if(isset($request->username)){
+            $user->username = $request->username;
+        }
+        if(isset($request->birthday)){
+            $user->birthday = $request->birthday;
+        }
+        if(isset($request->address)){
+            $user->address = $request->address;
+        }
+        if(isset($request->phone_number)){
+            $user->phone_number = $request->phone_number;
+        }
+        if(isset($request->email)){
+            $user->email = $request->email;
+        }
+        if(isset($request->password)){
+            $user->password = Hash::make($request->input('password'));
+        }
+        
+        $user->update();
+        return response()->json(["message" => "Sikeres módosítás."], 200);
     }
 
     /**
@@ -174,5 +196,40 @@ class UserController extends Controller
             return response()->json($user, 200);
         }
         
+    }
+
+    public function updateSelf(Request $request)
+    {
+        $user =User::find(Auth::id());
+        if (is_null($user)) {
+            return response()->json(["message" => "A megadott azonosítóval nem található felhasználó."], 404);
+        }
+        if(isset($request->admin)&& $request->admin != ""){
+            $user->admin = $request->admin;
+        }
+        if(isset($request->name) && $request->name != ""){
+            $user->name = $request->name;
+        }
+        if(isset($request->username)){
+            $user->username = $request->username;
+        }
+        if(isset($request->birthday)){
+            $user->birthday = $request->birthday;
+        }
+        if(isset($request->address)){
+            $user->address = $request->address;
+        }
+        if(isset($request->phone_number)){
+            $user->phone_number = $request->phone_number;
+        }
+        if(isset($request->email)){
+            $user->email = $request->email;
+        }
+        if(isset($request->password)){
+            $user->password = Hash::make($request->input('password'));
+        }
+        
+        $user->update();
+        return response()->json(["message" => "Sikeres módosítás."], 200);
     }
 }

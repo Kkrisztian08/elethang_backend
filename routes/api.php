@@ -61,6 +61,10 @@ Route::middleware('auth:sanctum')->post('/catAdoptionLoggedin/{id}',[AdoptionCon
 //örökbefogadás KUTYA(Auth)
 Route::middleware('auth:sanctum')->post('/dogAdoptionLoggedin/{id}',[AdoptionController::class,'storeDogAdoptionLoggedin']);
 //jelentkezés(Auth)
-Route::middleware('auth:sanctum')->post('/storeProgramApplication',[AdoptionController::class,'storeProgramApplication']);
+Route::middleware('auth:sanctum')->post('/storeProgramApplication',[ProgramapplicationController::class,'storeProgramApplication']);
 //adott felhasználó programjelentkezést
-Route::middleware('auth:sanctum')->post('/showApplication',[AdoptionController::class,'showApplication']);
+Route::middleware('auth:sanctum')->get('/showApplication',[ProgramapplicationController::class,'showApplication']);
+
+Route::delete('/deleteProgramApplication/{id}',[ProgramapplicationController::class, 'destroy']);
+
+Route::middleware('auth:sanctum')->put('/updateSelf',[UserController::class, 'updateSelf']);

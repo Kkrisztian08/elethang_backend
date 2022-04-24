@@ -102,7 +102,7 @@ class ProgramapplicationController extends Controller
             return response()->json(["message" => "A megadott azonosítóval nem található program jelentkezés."], 404);
         }
         Programapplication::destroy($id);
-        return response()->noContent();
+        return response()->json(["message"=> "Sikeres törlés"]);
     }
     //jelentkezés(Auth)
     public function storeProgramApplication(Request $request){
@@ -124,7 +124,7 @@ class ProgramapplicationController extends Controller
 
     //bejelentkezett user programjelentkezési
     public function showApplication(){
-        $applications = Programapplication::where("user_id", "=", Auth::id());
+        $applications = Programapplication::where("user_id", "=", Auth::id())->get();
         return $applications;
     }
     
