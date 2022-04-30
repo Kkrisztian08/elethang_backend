@@ -1,4 +1,4 @@
-Ambrus Pálma Zita       Vizsgaremek Wblap      2021.09.01-2022.04.24
+Ambrus Pálma Zita       Vizsgaremek Weblap      2021.09.01-2022.04.24
 
 Amik a honlap klónozásához szükségesek:
 
